@@ -1,0 +1,9 @@
+node_modules
+.next
+dist
+.git
+.github
+.env*
+*.pem
+*.log
+.DS_Store

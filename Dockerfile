@@ -6,8 +6,12 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:20-alpine AS runner
+
+ENV NODE_ENV=production
+WORKDIR /app
+COPY --from=builder --chown=node:node /app/dist ./dist
+COPY --chown=node:node server.mjs ./server.mjs
+USER node
+EXPOSE 3000
+CMD ["node", "server.mjs"]

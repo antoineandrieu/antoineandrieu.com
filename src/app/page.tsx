@@ -235,7 +235,7 @@ export default function Home() {
             Travaillons ensemble
           </h2>
           <p className="text-xl text-[#85c0ff] max-w-2xl mx-auto mb-12">
-            Vous avez un projet, une idée, ou besoin d'un regard neuf sur votre
+            Vous avez un projet, une idée, ou besoin d&apos;un regard neuf sur votre
             stack technique ? Discutons-en.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
