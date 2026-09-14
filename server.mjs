@@ -44,9 +44,10 @@ createServer(async (request, response) => {
     const pathname = new URL(request.url || "/", "http://localhost").pathname;
     const file = await resolveFile(pathname);
     const statusCode = file.endsWith("404.html") ? 404 : 200;
-    const cacheControl = pathname.startsWith("/_next/static/")
-      ? "public, max-age=31536000, immutable"
-      : "public, max-age=0, must-revalidate";
+    const cacheControl =
+      statusCode === 200 && pathname.startsWith("/_next/static/")
+        ? "public, max-age=31536000, immutable"
+        : "public, max-age=0, must-revalidate";
 
     response.writeHead(statusCode, {
       "Cache-Control": cacheControl,
@@ -55,9 +56,11 @@ createServer(async (request, response) => {
     });
     if (request.method === "HEAD") return response.end();
     createReadStream(file).pipe(response);
-  } catch {
-    response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
-    response.end("Internal Server Error");
+  } catch (error) {
+    const statusCode = error instanceof URIError ? 400 : 500;
+    const message = statusCode === 400 ? "Bad Request" : "Internal Server Error";
+    response.writeHead(statusCode, { "Content-Type": "text/plain; charset=utf-8" });
+    response.end(message);
   }
 }).listen(port, "0.0.0.0", () => {
   console.log(`Portfolio listening on 0.0.0.0:${port}`);
