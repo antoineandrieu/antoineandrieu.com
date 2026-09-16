@@ -1,5 +1,5 @@
 import { Portrait } from "@/components/portrait";
-import { SiteHeader } from "@/components/site-header";
+import { SiteHeader, headerScript } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { companies, type HomeContent } from "@/content/home";
 
@@ -245,6 +245,9 @@ export function HomePage({ t }: { t: HomeContent }) {
       </section>
 
       <SiteFooter t={t} />
+
+      {/* Header interactions without hydrating React: the page ships no client component. */}
+      <script dangerouslySetInnerHTML={{ __html: headerScript }} />
     </main>
   );
 }
