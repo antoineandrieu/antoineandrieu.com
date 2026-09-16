@@ -23,3 +23,107 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), system-ui, sans-serif;
 }
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Layout */
+.container-site {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section-pad {
+  padding-block: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-block: 8rem;
+  }
+}
+
+/* Kicker: small caps label with accent bar */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+/* Big section index number (Frameblox-style 01/02/03) */
+.section-index {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  color: var(--color-muted);
+  opacity: 0.7;
+}
+
+/* Giant display heading (Akimbo-style) */
+.display {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* Backgrounds: subtle grid + radial glows */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(30 25 90 / 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(30 25 90 / 0.35) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.glow-accent {
+  background: radial-gradient(closest-side, rgb(195 247 58 / 0.14), transparent 70%);
+}
+
+.glow-indigo {
+  background: radial-gradient(closest-side, rgb(30 25 90 / 0.55), transparent 70%);
+}
+
+.glow-blue {
+  background: radial-gradient(closest-side, rgb(133 192 255 / 0.12), transparent 70%);
+}
+
+/* Card with hover lift + accent edge */
+.card {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: rgb(13 11 30 / 0.5);
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card:hover {
+  border-color: var(--color-muted);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -16px rgb(133 192 255 / 0.25);
+}
+
+/* Muted body text */
+.text-muted-site {
+  color: var(--color-muted);
+}
