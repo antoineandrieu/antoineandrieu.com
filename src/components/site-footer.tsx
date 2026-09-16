@@ -11,6 +11,9 @@ export function SiteFooter() {
           </div>
           <nav className="footer-links" aria-label="Liens de contact">
             <a href="mailto:antoine@andrieu.me">Écrivez-moi <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/antoineand" target="_blank" rel="noopener noreferrer">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
             <a href="https://github.com/antoineandrieu" target="_blank" rel="noopener noreferrer">
               GitHub <span aria-hidden="true">↗</span>
             </a>

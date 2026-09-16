@@ -325,11 +325,11 @@ button:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 5px;
 /* A full-width orange signature closes the otherwise white page. */
 .site-footer { background: var(--color-accent); color: var(--color-ink); }
 .footer-inner { max-width: 88rem; margin-inline: auto; padding: 3rem 3rem 1.5rem; }
-.footer-top { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.footer-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
 .footer-intro { display: flex; align-items: center; gap: 1rem; }
 .footer-intro p { font-size: .8rem; line-height: 1.6; font-weight: 500; }
 .footer-mark { font-size: 3rem; line-height: 1; }
-.footer-links { display: flex; gap: 1.5rem; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; row-gap: .4rem; }
 .footer-links a { position: relative; display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; font-size: .85rem; font-weight: 600; }
 .footer-links a::after { content: ""; position: absolute; bottom: 5px; left: 0; height: 1px; width: 100%; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
 .footer-links a:is(:hover, :focus-visible)::after { transform: scaleX(1); }

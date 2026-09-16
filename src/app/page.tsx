@@ -405,12 +405,12 @@ export default function Home() {
                 Décrire votre problème <span aria-hidden>↗</span>
               </a>
               <a
-                href="https://github.com/antoineandrieu"
+                href="https://www.linkedin.com/in/antoineand"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
-                GitHub <span aria-hidden>↗</span>
+                LinkedIn <span aria-hidden>↗</span>
               </a>
             </div>
           </div>
