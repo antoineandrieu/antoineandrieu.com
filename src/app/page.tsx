@@ -170,7 +170,14 @@ const tools = [
   },
 ];
 
-const companies = ["Mycophyto", "Arise Travel", "Scircula", "Knap"];
+const companies = [
+  "Mycophyto",
+  "Arise Travel",
+  "Scircula",
+  "Knap",
+  "Meta IT",
+  "Izargolf",
+];
 
 export default function Home() {
   return (
