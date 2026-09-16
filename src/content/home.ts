@@ -201,10 +201,10 @@ export const fr: HomeContent = {
       },
       {
         title: "Réseau décentralisé de réservation",
-        stage: "Arise Travel · 2022-2024",
+        stage: "Arise Travel · arrêté avec la startup",
         role: "Conception et implémentation",
         description:
-          "Réseau privé de réservation d'hôtel sur Hyperledger Fabric : smart contracts pour la logique de réservation et registre distribué entre les organisations participantes.",
+          "Les réservations passaient par des intermédiaires, et chaque couche ajoutait ses erreurs de prix. Réseau privé Hyperledger Fabric : smart contracts pour la logique de réservation et registre distribué entre les organisations participantes, sans intermédiaire pour retraduire les tarifs.",
         tags: ["Hyperledger Fabric", "Blockchain", "Smart contracts"],
       },
       {
@@ -457,10 +457,10 @@ export const en: HomeContent = {
       },
       {
         title: "Decentralized booking network",
-        stage: "Arise Travel · 2022-2024",
+        stage: "Arise Travel · shut down with the startup",
         role: "Design and implementation",
         description:
-          "Private hotel-booking network on Hyperledger Fabric: smart contracts for the booking logic and a distributed ledger shared across the participating organizations.",
+          "Bookings went through intermediaries, and every layer added its own price errors. Private Hyperledger Fabric network: smart contracts for the booking logic and a distributed ledger shared across the participating organizations, with no intermediary re-translating the rates.",
         tags: ["Hyperledger Fabric", "Blockchain", "Smart contracts"],
       },
       {
