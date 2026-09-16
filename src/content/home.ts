@@ -11,6 +11,10 @@ export interface Job {
 
 export interface Project {
   title: string;
+  /** Maturity label: production, startup, internal tooling. Lets a visitor tell a side project from a shipped system. */
+  stage: string;
+  /** What I personally owned on it. */
+  role: string;
   description: string;
   tags: string[];
 }
@@ -64,7 +68,12 @@ export interface HomeContent {
   projects: { kicker: string; heading: string; items: Project[] };
   experience: { kicker: string; heading: string; items: Job[] };
   tools: { kicker: string; heading: string; groups: ToolGroup[] };
-  collaboration: { kicker: string; heading: string; items: Line[] };
+  collaboration: {
+    kicker: string;
+    heading: string;
+    items: Line[];
+    problems: { label: string; items: string[] };
+  };
   contact: {
     kicker: string;
     titleA: string;
@@ -107,108 +116,126 @@ export const fr: HomeContent = {
       ["experience", "Expérience"],
       ["collaborer", "Collaborer"],
     ],
-    contactCta: "Parlons produit",
-    contactAria: "Parlons de votre produit",
+    contactCta: "Parler du problème",
+    contactAria: "Parler de votre problème",
     mobileLabel: "Explorer",
-    mobileContact: "Parlons de votre produit",
+    mobileContact: "Parler de votre problème",
     menuOpen: "Ouvrir le menu",
     menuClose: "Fermer le menu",
   },
   hero: {
     eyebrow: "Product engineer · Hands-on CTO · Founding engineer",
-    titleA: "Je conçois,",
-    titleB: "je construis,",
-    titleCPrefix: "je ",
-    titleCAccent: "livre.",
+    titleA: "Du problème métier",
+    titleB: "au système",
+    titleCPrefix: "en ",
+    titleCAccent: "production.",
     description:
-      "J'arrive avant les specs : je discute le besoin, j'arbitre ce qui mérite d'être construit, puis je livre moi-même. 15 ans d'ingénierie, dont 5 en early-stage : digitalisation des opérations, architecture et API, donnée, agents IA.",
-    ctaPrimary: "Voir ce que je construis",
+      "J'arrive avant les specs : je comprends comment l'entreprise fonctionne, je tranche ce qui mérite d'être construit, puis je construis, je déploie et je réponds quand ça casse. 15 ans d'ingénierie, dont 5 en early-stage.",
+    ctaPrimary: "Voir ce que j'ai construit",
     ctaSecondary: "Comment travailler ensemble",
-    badge: "Disponible en freelance, CTO fractionné ou founding engineer",
+    badge: "Freelance, CTO fractionné ou founding engineer.",
     alt: "Antoine Andrieu, en t-shirt blanc, regard caméra et tatouages visibles.",
   },
-  trustedKicker: "Ils m'ont fait confiance",
+  trustedKicker: "J'ai construit chez",
   about: {
     kicker: "À propos",
     captionRole: "Product engineer & CTO hands-on",
     alt: "Antoine Andrieu souriant, en t-shirt noir, les bras croisés.",
-    statement: "Décider et construire, dans la même personne.",
+    statement: "Je travaille sur des problèmes qui n'ont pas encore de forme logicielle.",
     paragraphs: [
-      "Ingénieur data chez Mycophyto, où je construis la pipeline de données, le data warehouse et les API qui alimentent les applications internes. Avant : ingénieur senior à San Francisco chez Arise Travel, co-fondateur et CTO de Scircula avec une co-fondatrice sud-africaine, ingénieur backend chez Knap et Izargolf.",
-      "Quinze ans à travailler en anglais, à distance, avec des équipes aux États-Unis, aux Pays-Bas et en Afrique du Sud. Le décalage horaire change la façon de spécifier et de livrer : tout s'écrit, rien ne se rattrape à l'oral.",
-      "Mon intérêt va aux problèmes qui n'ont pas encore de forme logicielle : un processus qui vit dans un tableur, une décision prise à l'intuition faute de données, une équipe qui perd des heures sur des tâches qu'un agent peut prendre en charge. Je commence par le modèle économique, j'arbitre ce qui mérite d'être construit, puis j'ouvre l'éditeur et je le construis.",
+      "Je commence par le modèle économique et le processus réel : qui décide quoi, où l'information se perd, ce qui n'a jamais été écrit. De là je descends au produit, à l'architecture, au modèle de données et au code, et je reste sur le système jusqu'à ce qu'il tourne en production.",
+      "Le fil est le même depuis quinze ans : métier, produit, système, donnée, automatisation, et maintenant agents. Aujourd'hui : la pipeline de données, l'entrepôt et les API qui alimentent les applications internes de Mycophyto. Avant : ingénieur senior à San Francisco chez Arise Travel, co-fondateur et CTO de Scircula à Amsterdam, backend chez Knap, Meta IT et Izargolf. Ce parcours s'est fait en anglais, à distance, avec des équipes aux États-Unis, aux Pays-Bas et en Afrique du Sud.",
+      "Pour comprendre un métier, je regarde le travail réel : j'ai besoin d'un accès direct à ceux qui le font et à ceux qui décident, pas d'un cahier des charges. C'est de là que sortent les arbitrages.",
     ],
   },
   expertise: {
     kicker: "Expertise",
-    heading: "Du processus métier au système, puis à l'automatisation",
+    heading: "Les situations où on m'appelle.",
     items: [
       {
-        title: "Digitaliser les opérations",
+        title: "Les opérations tournent sur des tableurs",
         description:
-          "Un ERP qui suit le processus réel de l'entreprise : modules sur mesure, connecteurs avec vos outils, reprise des données. La digitalisation commence par la cartographie du métier, pas par l'installation d'un logiciel.",
+          "Je cartographie le processus réel, puis je le remplace par un ERP que les équipes utilisent parce qu'il suit leur façon de travailler, avec la reprise de l'historique. La cartographie du métier vient avant l'installation d'un logiciel.",
       },
       {
-        title: "Concevoir le système",
+        title: "Vos systèmes ne se parlent pas",
         description:
-          "Architecture backend, API, modèle de données, CI/CD, coût d'infrastructure. Des choix assumés et documentés, tenables dans trois ans, jamais une pile de frameworks à la mode.",
+          "API REST, webhooks, connecteurs : l'ERP, la facturation, la donnée et les outils métier arrêtent de se répondre par ressaisie. Interfaces versionnées et documentées, qu'une équipe interne ou un partenaire peut consommer.",
       },
       {
-        title: "Brancher les systèmes entre eux",
+        title: "La donnée existe, personne ne l'exploite",
         description:
-          "API REST et GraphQL, webhooks, connecteurs : faire dialoguer l'ERP, la facturation, les données et les outils métier sans ressaisie. Documenté, versionné, consommable par un produit, un partenaire ou une équipe interne.",
+          "Modélisation, pipeline, qualité, entrepôt : une base relationnelle comme source de vérité, que les équipes interrogent elles-mêmes sans passer par un développeur.",
       },
       {
-        title: "Tenir la donnée",
+        title: "L'équipe refait les mêmes tâches",
         description:
-          "Une base relationnelle comme source de vérité : modélisation, pipelines, qualité, exploitation. Un entrepôt que les équipes interrogent sans passer par un développeur.",
+          "Saisie, tri, relances, rapprochements : je les automatise, avec les règles métier écrites noir sur blanc plutôt qu'enfouies dans une tête.",
       },
       {
-        title: "Étendre avec l'IA",
+        title: "L'IA peut prendre une partie du système",
         description:
-          "Agents et workflows qui reprennent la saisie, le tri, la relance, la normalisation. Utilisés au quotidien sur mes propres systèmes, branchés sur des processus métier réels, avec validation humaine aux points de décision.",
+          "Des agents branchés sur vos données et vos outils, avec les règles métier explicites et une validation humaine là où une décision se prend. Je les fais tourner sur mes propres systèmes avant de les proposer.",
       },
     ],
   },
   projects: {
     kicker: "Projets",
-    heading: "Des systèmes en production",
+    heading: "Du prototype à la production.",
     items: [
       {
         title: "Rosa Agri",
+        stage: "Produit personnel · en développement",
+        role: "Conçu et développé seul",
         description:
-          "Jumeau numérique d'exploitation agricole : parcelles, itinéraires techniques, décisions de production et traçabilité. La donnée du terrain devient la source de vérité partagée par toute l'équipe.",
-        tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL"],
-      },
-      {
-        title: "Digitalisation d'opérations",
-        description:
-          "Des PME et une équipe agricole passées du tableur à un ERP qui suit leur vrai processus : modules sur mesure, connecteurs avec les outils existants, reprise de l'historique.",
-        tags: ["Odoo", "Python", "PostgreSQL", "Automatisation"],
+          "Jumeau numérique d'exploitation agricole : parcelles, itinéraires techniques, décisions de production, traçabilité. Le sujet est la chaîne de données : Postgres comme source de vérité, n8n pour l'orchestration, un agent qui normalise et enrichit les entrées avec leur provenance et un niveau de confiance, et une validation humaine avant publication.",
+        tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "n8n"],
       },
       {
         title: "Système d'appels IA",
+        stage: "Arise Travel · prototype",
+        role: "Ingénieur senior, deux implémentations",
         description:
-          "Conversation téléphonique automatisée pour les réservations hôtelières : deux versions, une en composants open source, une via API. Du premier mot à la réservation confirmée, sans passer par un standard.",
+          "Les réservations d'hôtel se prenaient au téléphone, un humain par appel. Prototype de standard automatisé, de la première phrase à la réservation confirmée, sans opérateur. Deux implémentations explorées : composants open source, puis API. L'orchestration portait le risque : latence par tour de parole, reprise sur erreur, dashboard temps réel, déploiement conteneurisé.",
         tags: ["FastAPI", "React", "OpenAI", "Deepgram", "Kubernetes"],
       },
       {
-        title: "Hermes Agent en production",
+        title: "Réseau décentralisé de réservation",
+        stage: "Arise Travel · 2022-2024",
+        role: "Conception et implémentation",
         description:
-          "Agents autonomes branchés sur mes propres systèmes : normalisation de données, veille, déploiements, revue de code. La même mécanique se branche sur des processus métier, avec validation humaine aux décisions.",
+          "Réseau privé de réservation d'hôtel sur Hyperledger Fabric : smart contracts pour la logique de réservation et registre distribué entre les organisations participantes.",
+        tags: ["Hyperledger Fabric", "Blockchain", "Smart contracts"],
+      },
+      {
+        title: "Digitalisation d'opérations",
+        stage: "Clients · en production",
+        role: "Modules sur mesure, connecteurs, reprise des données",
+        description:
+          "Des PME et une équipe agricole sur des tableurs ou des logiciels qui ne suivaient pas leur processus. Migration vers un ERP cadré sur leur façon de travailler : modules sur mesure, connecteurs avec les outils existants, reprise de l'historique. Ce qui décide du succès, c'est la reprise des données et l'adoption par les équipes.",
+        tags: ["Odoo", "Python", "PostgreSQL", "Automatisation"],
+      },
+      {
+        title: "Hermes Agent",
+        stage: "Mes propres systèmes · usage quotidien",
+        role: "Conçu et exploité par moi",
+        description:
+          "Hermes tourne sur mes systèmes plutôt que sur une démo : normalisation des données entrantes, veille de sources, préparation de déploiements, relecture de code. Chaque workflow suit la même chaîne : outils, données, règles métier explicites, validation humaine quand une décision est engagée, puis action. La même mécanique se branche sur les processus d'une entreprise.",
         tags: ["Agents IA", "MCP", "Python", "Automatisation"],
       },
       {
         title: "Scircula",
+        stage: "Startup · 2020-2022",
+        role: "Co-fondateur & CTO",
         description:
-          "SaaS B2B2C de fit vestimentaire : les mesures d'un vêtement rapprochées de celles du client pour réduire les retours. Co-fondateur et CTO, du premier schéma de base de données aux premières marques clientes.",
+          "Le fit vestimentaire en ligne : les mesures d'un vêtement rapprochées de celles du client pour réduire les retours. Deux ans à construire le produit, l'équipe et le go-to-market avec une co-fondatrice sud-africaine. Le pari a buté sur la fiabilité des mesures et sur des marques difficiles à convaincre ; l'aventure s'est arrêtée en 2022.",
         tags: ["React", "Django", "PyTorch", "Shopify"],
       },
     ],
   },
   experience: {
     kicker: "Parcours",
-    heading: "Quinze ans à livrer",
+    heading: "Quinze ans à livrer.",
     items: [
       {
         role: "Ingénieur Data & Développeur full-stack",
@@ -216,7 +243,7 @@ export const fr: HomeContent = {
         period: "2024 — Présent",
         location: "Grasse, France",
         description:
-          "Pipeline de données et data warehouse pour l'agritech, applications métier internes, intégration de l'ERP. Partir des questions des équipes agronomes et livrer les outils qui y répondent.",
+          "Pipeline de données, entrepôt et API qui alimentent les applications internes : les questions des équipes agronomes deviennent des outils qu'elles utilisent tous les jours. Intégré à l'ERP.",
         tags: ["Data", "PostgreSQL", "Odoo", "Full-stack", "Agritech"],
       },
       {
@@ -225,8 +252,8 @@ export const fr: HomeContent = {
         period: "2022 — 2024",
         location: "San Francisco, USA",
         description:
-          "Système d'appels téléphoniques automatisé par IA générative pour gérer les réservations d'hôtels. Deux versions livrées : composants open source, puis API. Dashboard temps réel, orchestration de conteneurs, smart contracts sur une blockchain privée.",
-        tags: ["Python", "FastAPI", "TypeScript", "Kubernetes", "OpenAI", "Deepgram", "AWS"],
+          "Prototype de standard téléphonique par IA et réseau privé Hyperledger Fabric pour la réservation d'hôtel, deux implémentations du standard. Dashboard temps réel, conteneurs orchestrés.",
+        tags: ["Python", "FastAPI", "TypeScript", "Kubernetes", "OpenAI", "AWS"],
       },
       {
         role: "Co-fondateur & CTO",
@@ -234,7 +261,7 @@ export const fr: HomeContent = {
         period: "2020 — 2022",
         location: "Amsterdam, Pays-Bas",
         description:
-          "SaaS de fit vestimentaire pour marques de mode : roadmap produit, architecture, recrutement de l'équipe, et le code. Deux ans à construire, vendre, et porter la dette technique jusqu'à la fin de l'aventure.",
+          "Roadmap produit, architecture, recrutement et code, jusqu'à la fin de l'aventure.",
         tags: ["Python", "Django", "Next.js", "React", "AWS"],
       },
       {
@@ -243,26 +270,26 @@ export const fr: HomeContent = {
         period: "2018 — 2020",
         location: "Nice, France",
         description:
-          "Backend d'un caddie connecté : API REST et middlewares, packaging pour les systèmes embarqués, pipeline CI/CD, exploitation serveur.",
-        tags: ["JavaScript", "Node.js", "PostgreSQL", "GitLab CI/CD", "Linux"],
+          "Backend d'un caddie connecté : API REST, middlewares, packaging embarqué, CI/CD et exploitation serveur.",
+        tags: ["JavaScript", "Node.js", "PostgreSQL", "Linux"],
       },
       {
         role: "Développeur Backend",
         company: "Meta Information Technology",
         period: "2016 — 2017",
-        location: "Biarritz, Nouvelle-Aquitaine, France",
+        location: "Biarritz, France",
         description:
-          "Intégration d'un ERP chez des PME : modules sur mesure, connecteurs avec les outils existants, API RESTful. Première exposition complète à la digitalisation des opérations.",
-        tags: ["Python", "Django", "Odoo", "PostgreSQL", "Pytest", "GitLab CI/CD"],
+          "Intégration d'ERP chez des PME : modules sur mesure, connecteurs, API RESTful. C'est là que la digitalisation des opérations a commencé pour moi.",
+        tags: ["Python", "Django", "Odoo", "PostgreSQL"],
       },
       {
         role: "Développeur Backend et Mobile",
         company: "Izargolf",
         period: "2012 — 2015",
-        location: "Biarritz, Nouvelle-Aquitaine, France",
+        location: "Biarritz, France",
         description:
-          "Applications web et mobiles pour golfeurs : traduction de la logique métier en API RESTful, applications iOS et Android, suivi des mouvements et des scores. Coordination des sous-traitants en charge de l'électronique.",
-        tags: ["PHP", "Symfony", "PostgreSQL", "Java", "NeoMAD", "iOS", "Android"],
+          "Applications web et mobiles pour golfeurs, de la logique métier aux API REST et aux applications iOS et Android ; coordination des sous-traitants électroniques.",
+        tags: ["PHP", "Symfony", "PostgreSQL", "iOS", "Android"],
       },
     ],
   },
@@ -272,46 +299,52 @@ export const fr: HomeContent = {
     groups: [
       { title: "Digitalisation & ERP", items: ["Odoo", "Python", "n8n"] },
       { title: "Backend & API", items: ["TypeScript", "Node.js", "NestJS", "FastAPI", "Django", "GraphQL"] },
-      { title: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
       { title: "Données", items: ["PostgreSQL", "Prisma", "dbt", "SQL"] },
+      { title: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
       { title: "Infra & delivery", items: ["Docker", "Kubernetes", "AWS", "GitLab CI/CD", "Linux"] },
       { title: "IA & agents", items: ["Hermes Agent", "MCP", "OpenAI", "Deepgram", "Whisper"] },
     ],
   },
   collaboration: {
     kicker: "Collaboration",
-    heading: "Comment on peut travailler ensemble",
+    heading: "Trois façons de travailler ensemble",
     items: [
       {
         title: "Mission freelance",
         description:
-          "Un problème métier à transformer en système : cadrage, architecture, implémentation, mise en production. Périmètre écrit et livrables qui tournent.",
+          "Un problème à transformer en système : cadrage, architecture, développement, mise en production. Périmètre écrit, et des livrables qui tournent.",
       },
       {
         title: "CTO fractionné",
         description:
-          "Un produit et une équipe, pas encore de direction technique. Je prends les décisions d'architecture, la roadmap technique et le recrutement, et je code avec l'équipe.",
+          "Un produit et une équipe, pas encore de direction technique. Architecture, roadmap technique, recrutement, et je code avec l'équipe.",
       },
       {
         title: "Founding engineer",
         description:
           "Early-stage : tout est à construire et le temps manque. Du premier schéma de base de données aux premiers utilisateurs, en passant par les arbitrages produit.",
       },
-      {
-        title: "De la digitalisation à l'IA",
-        description:
-          "Des opérations pilotées dans des tableurs et des décisions prises à l'intuition. Je cartographie, j'automatise, puis je confie aux agents ce qui reste répétitif.",
-      },
     ],
+    problems: {
+      label: "Types de problèmes que je prends",
+      items: [
+        "Digitalisation métier",
+        "Produits complexes",
+        "Systèmes data-heavy",
+        "Architecture",
+        "Automatisation",
+        "IA & agents",
+      ],
+    },
   },
   contact: {
     kicker: "Contact",
     titleA: "Parlons du",
     titleB: "problème",
     intro:
-      "Un processus à digitaliser, une architecture à trancher, un produit à sortir, des données à exploiter, des agents à brancher sur votre métier. Écrivez-moi quelques lignes de contexte : je réponds avec ma lecture du problème et une première piste.",
+      "Décrivez la situation en quelques lignes : ce qui coince, ce qui tourne encore à la main, ce que vous n'arrivez pas à trancher. Je réponds avec ma lecture du problème et la première chose que je construirais.",
     availability:
-      "Ouvert au freelance, au CTO fractionné et aux rôles de founding engineer, sur des produits qui ont un intérêt technique et business. antoine@andrieu.me",
+      "Je prends peu de missions à la fois. Freelance, CTO fractionné ou founding engineer, sur des problèmes qui valent l'effort technique. antoine@andrieu.me",
     ctaPrimary: "Décrire votre problème",
     alt: "Antoine Andrieu assis, souriant, en col roulé beige.",
   },
@@ -339,108 +372,126 @@ export const en: HomeContent = {
       ["experience", "Experience"],
       ["collaborer", "Work together"],
     ],
-    contactCta: "Let's talk",
-    contactAria: "Let's talk about your product",
+    contactCta: "Talk about the problem",
+    contactAria: "Talk about your problem",
     mobileLabel: "Explore",
-    mobileContact: "Let's talk about your product",
+    mobileContact: "Talk about your problem",
     menuOpen: "Open menu",
     menuClose: "Close menu",
   },
   hero: {
     eyebrow: "Product engineer · Hands-on CTO · Founding engineer",
-    titleA: "I design,",
-    titleB: "I build,",
-    titleCPrefix: "I ",
-    titleCAccent: "ship.",
+    titleA: "From business problem",
+    titleB: "to a system",
+    titleCPrefix: "in ",
+    titleCAccent: "production.",
     description:
-      "I arrive before the specs: I listen to the need, decide what is worth building, then ship it myself. 15 years of engineering, 5 of them in early-stage: operations digitalization, architecture and APIs, data, AI agents.",
-    ctaPrimary: "See what I build",
+      "I show up before the specs: I work out how the business actually runs, decide what is worth building, then build it, deploy it and answer when it breaks. 15 years of engineering, 5 of them in early-stage.",
+    ctaPrimary: "See what I built",
     ctaSecondary: "How we can work together",
-    badge: "Available for freelance, fractional CTO or founding engineer roles",
+    badge: "Freelance, fractional CTO or founding engineer.",
     alt: "Antoine Andrieu, in a white t-shirt, looking at the camera, tattoos visible.",
   },
-  trustedKicker: "Trusted by",
+  trustedKicker: "I built at",
   about: {
     kicker: "About",
     captionRole: "Product engineer & hands-on CTO",
     alt: "Antoine Andrieu smiling, in a black t-shirt, arms crossed.",
-    statement: "Deciding and building, in the same person.",
+    statement: "I work on problems that have no software shape yet.",
     paragraphs: [
-      "Data engineer at Mycophyto, where I build the data pipeline, the data warehouse and the APIs that feed the internal applications. Before that: senior engineer in San Francisco at Arise Travel, co-founder and CTO of Scircula with a South African co-founder, backend engineer at Knap and Izargolf.",
-      "Fifteen years working in English, remotely, with teams in the United States, the Netherlands and South Africa. Time zones change how you specify and deliver: everything gets written down, nothing gets fixed in a hallway chat.",
-      "I am drawn to problems that do not have a software shape yet: a process living in a spreadsheet, a decision made on gut feeling for lack of data, a team losing hours on tasks an agent could take over. I start from the business model, decide what is worth building, then open the editor and build it.",
+      "I start from the business model and the real process: who decides what, where information gets lost, what was never written down. From there I work down to the product, the architecture, the data model and the code, and I stay on the system until it runs in production.",
+      "The thread has been the same for fifteen years: business, product, systems, data, automation, and now agents. Today: the data pipeline, the warehouse and the APIs feeding Mycophyto's internal applications. Before that: senior engineer in San Francisco at Arise Travel, co-founder and CTO of Scircula in Amsterdam, backend at Knap, Meta IT and Izargolf. That path happened in English, remotely, with teams in the United States, the Netherlands and South Africa.",
+      "To understand a business I look at the work itself: I need direct access to the people doing it and the people deciding, not a specification document. That is where the trade-offs come from.",
     ],
   },
   expertise: {
     kicker: "Expertise",
-    heading: "From business process to system, then to automation",
+    heading: "The situations I get called in for.",
     items: [
       {
-        title: "Digitalize operations",
+        title: "Operations run on spreadsheets",
         description:
-          "An ERP that follows the company's real process: custom modules, connectors to your tools, data migration. Digitalization starts with mapping the business, not with installing software.",
+          "I map the real process, then replace it with an ERP the teams actually use because it follows the way they work, history migrated. Mapping the business comes before installing software.",
       },
       {
-        title: "Design the system",
+        title: "Your systems don't talk to each other",
         description:
-          "Backend architecture, APIs, data model, CI/CD, infrastructure cost. Deliberate, documented choices that still hold in three years, never a pile of trendy frameworks.",
+          "REST APIs, webhooks, connectors: the ERP, billing, data and business tools stop answering each other through re-keying. Versioned, documented interfaces an internal team or a partner can consume.",
       },
       {
-        title: "Wire systems together",
+        title: "The data exists, nobody uses it",
         description:
-          "REST and GraphQL APIs, webhooks, connectors: making the ERP, billing, data and business tools talk without re-keying. Documented, versioned, consumable by a product, a partner or an internal team.",
+          "Modeling, pipelines, quality, warehouse: a relational database as the source of truth, which the teams query themselves without going through a developer.",
       },
       {
-        title: "Own the data",
+        title: "The team repeats the same manual work",
         description:
-          "A relational database as the source of truth: modeling, pipelines, quality, operations. A warehouse teams can query without going through a developer.",
+          "Data entry, sorting, follow-ups, reconciliations: I automate them, with the business rules written down instead of stored in someone's head.",
       },
       {
-        title: "Extend with AI",
+        title: "AI can take over part of the system",
         description:
-          "Agents and workflows that take over data entry, sorting, follow-ups, normalization. Used daily on my own systems, wired into real business processes, with human validation at decision points.",
+          "Agents wired into your data and your tools, with explicit business rules and human validation where a decision is taken. I run them on my own systems before offering them.",
       },
     ],
   },
   projects: {
     kicker: "Projects",
-    heading: "Systems in production",
+    heading: "From prototype to production.",
     items: [
       {
         title: "Rosa Agri",
+        stage: "Personal product · in development",
+        role: "Designed and built alone",
         description:
-          "Digital twin of a farm: plots, technical itineraries, production decisions and traceability. Field data becomes the source of truth shared by the whole team.",
-        tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL"],
-      },
-      {
-        title: "Operations digitalization",
-        description:
-          "SMEs and a farm team moved from spreadsheets to an ERP that follows their real process: custom modules, connectors to existing tools, history migration.",
-        tags: ["Odoo", "Python", "PostgreSQL", "Automatisation"],
+          "Digital twin of a farm: plots, technical itineraries, production decisions, traceability. The work is the data chain: Postgres as the source of truth, n8n orchestrating, an agent normalizing and enriching incoming data with its provenance and a confidence level, and human validation before publication.",
+        tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "n8n"],
       },
       {
         title: "AI call system",
+        stage: "Arise Travel · prototype",
+        role: "Senior engineer, two implementations",
         description:
-          "Automated phone conversation for hotel bookings: two versions shipped, one as open-source components, one via API. From the first word to the confirmed booking, no front desk involved.",
+          "Hotel bookings came in by phone, one human per call. Prototype of an automated switchboard, from the first sentence to the confirmed booking, with no operator. Two implementations explored: open-source components, then an API. Orchestration carried the risk: latency per turn, error recovery, real-time dashboard, containerized deployment.",
         tags: ["FastAPI", "React", "OpenAI", "Deepgram", "Kubernetes"],
       },
       {
-        title: "Hermes Agent in production",
+        title: "Decentralized booking network",
+        stage: "Arise Travel · 2022-2024",
+        role: "Design and implementation",
         description:
-          "Autonomous agents wired into my own systems: data normalization, monitoring, deployments, code review. The same mechanics plug into business processes, with human validation on decisions.",
-        tags: ["Agents IA", "MCP", "Python", "Automatisation"],
+          "Private hotel-booking network on Hyperledger Fabric: smart contracts for the booking logic and a distributed ledger shared across the participating organizations.",
+        tags: ["Hyperledger Fabric", "Blockchain", "Smart contracts"],
+      },
+      {
+        title: "Operations digitalization",
+        stage: "Clients · in production",
+        role: "Custom modules, connectors, data migration",
+        description:
+          "SMEs and a farm team on spreadsheets or on software that did not match how they worked. Migration to an ERP shaped around their process: custom modules, connectors to existing tools, history migrated. Success comes down to the data migration and whether the team adopts it.",
+        tags: ["Odoo", "Python", "PostgreSQL", "Automation"],
+      },
+      {
+        title: "Hermes Agent",
+        stage: "My own systems · daily use",
+        role: "Built and operated by me",
+        description:
+          "Hermes runs on my systems rather than in a demo: normalizing incoming data, watching sources, preparing deployments, reviewing code. Every workflow follows the same chain: tools, data, explicit business rules, human validation where a decision is at stake, then action. The same mechanics plug into a company's processes.",
+        tags: ["AI agents", "MCP", "Python", "Automation"],
       },
       {
         title: "Scircula",
+        stage: "Startup · 2020-2022",
+        role: "Co-founder & CTO",
         description:
-          "B2B2C garment-fit SaaS: matching a garment's measurements with the customer's to cut returns. Co-founder and CTO, from the first database schema to the first client brands.",
+          "Online garment fit: matching a garment's measurements to the customer's to cut returns. Two years building the product, the team and the go-to-market with a South African co-founder. The bet ran into unreliable measurements and fashion brands that were hard to sell; the company stopped in 2022.",
         tags: ["React", "Django", "PyTorch", "Shopify"],
       },
     ],
   },
   experience: {
     kicker: "Experience",
-    heading: "Fifteen years of shipping",
+    heading: "Fifteen years of shipping.",
     items: [
       {
         role: "Data Engineer & Full-Stack Developer",
@@ -448,7 +499,7 @@ export const en: HomeContent = {
         period: "2024 — Present",
         location: "Grasse, France",
         description:
-          "Data pipeline and data warehouse for agritech, internal business applications, ERP integration. Start from the agronomy teams' questions and ship the tools that answer them.",
+          "Data pipeline, warehouse and APIs feeding the internal applications: the agronomy teams' questions become tools they use every day. Integrated with the ERP.",
         tags: ["Data", "PostgreSQL", "Odoo", "Full-stack", "Agritech"],
       },
       {
@@ -457,8 +508,8 @@ export const en: HomeContent = {
         period: "2022 — 2024",
         location: "San Francisco, USA",
         description:
-          "Generative-AI automated phone call system to handle hotel bookings. Two versions shipped: open-source components, then API. Real-time dashboard, container orchestration, smart contracts on a private blockchain.",
-        tags: ["Python", "FastAPI", "TypeScript", "Kubernetes", "OpenAI", "Deepgram", "AWS"],
+          "AI switchboard prototype and a private Hyperledger Fabric network for hotel bookings, two implementations of the switchboard. Real-time dashboard, container orchestration.",
+        tags: ["Python", "FastAPI", "TypeScript", "Kubernetes", "OpenAI", "AWS"],
       },
       {
         role: "Co-founder & CTO",
@@ -466,7 +517,7 @@ export const en: HomeContent = {
         period: "2020 — 2022",
         location: "Amsterdam, Netherlands",
         description:
-          "Garment-fit SaaS for fashion brands: product roadmap, architecture, team hiring, and the code. Two years building, selling, and carrying the technical debt until the end of the adventure.",
+          "Product roadmap, architecture, hiring and code, through to the end of the adventure.",
         tags: ["Python", "Django", "Next.js", "React", "AWS"],
       },
       {
@@ -475,8 +526,8 @@ export const en: HomeContent = {
         period: "2018 — 2020",
         location: "Nice, France",
         description:
-          "Backend for a connected shopping cart: REST API and middlewares, packaging for embedded systems, CI/CD pipeline, server operations.",
-        tags: ["JavaScript", "Node.js", "PostgreSQL", "GitLab CI/CD", "Linux"],
+          "Backend for a connected shopping cart: REST API, middlewares, embedded packaging, CI/CD and server operations.",
+        tags: ["JavaScript", "Node.js", "PostgreSQL", "Linux"],
       },
       {
         role: "Backend Developer",
@@ -484,8 +535,8 @@ export const en: HomeContent = {
         period: "2016 — 2017",
         location: "Biarritz, France",
         description:
-          "ERP integration at SMEs: custom modules, connectors to existing tools, RESTful APIs. First full exposure to operations digitalization.",
-        tags: ["Python", "Django", "Odoo", "PostgreSQL", "Pytest", "GitLab CI/CD"],
+          "ERP integration at SMEs: custom modules, connectors, RESTful APIs. This is where operations digitalization started for me.",
+        tags: ["Python", "Django", "Odoo", "PostgreSQL"],
       },
       {
         role: "Backend & Mobile Developer",
@@ -493,8 +544,8 @@ export const en: HomeContent = {
         period: "2012 — 2015",
         location: "Biarritz, France",
         description:
-          "Web and mobile apps for golfers: business logic translated into RESTful APIs, iOS and Android apps, swing and score tracking. Coordinated the contractors in charge of the electronics.",
-        tags: ["PHP", "Symfony", "PostgreSQL", "Java", "NeoMAD", "iOS", "Android"],
+          "Web and mobile apps for golfers, from business logic to REST APIs and iOS and Android apps; coordinated the electronics contractors.",
+        tags: ["PHP", "Symfony", "PostgreSQL", "iOS", "Android"],
       },
     ],
   },
@@ -504,46 +555,52 @@ export const en: HomeContent = {
     groups: [
       { title: "Digitalization & ERP", items: ["Odoo", "Python", "n8n"] },
       { title: "Backend & API", items: ["TypeScript", "Node.js", "NestJS", "FastAPI", "Django", "GraphQL"] },
-      { title: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
       { title: "Data", items: ["PostgreSQL", "Prisma", "dbt", "SQL"] },
+      { title: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
       { title: "Infra & delivery", items: ["Docker", "Kubernetes", "AWS", "GitLab CI/CD", "Linux"] },
       { title: "AI & agents", items: ["Hermes Agent", "MCP", "OpenAI", "Deepgram", "Whisper"] },
     ],
   },
   collaboration: {
     kicker: "Working together",
-    heading: "How we can work together",
+    heading: "Three ways to work together",
     items: [
       {
         title: "Freelance engagement",
         description:
-          "A business problem to turn into a system: scoping, architecture, implementation, production. Written scope and deliverables that run.",
+          "A problem to turn into a system: scoping, architecture, development, production. Written scope, and deliverables that run.",
       },
       {
         title: "Fractional CTO",
         description:
-          "A product and a team, no technical leadership yet. I take the architecture decisions, the technical roadmap and the hiring, and I code with the team.",
+          "A product and a team, no technical leadership yet. Architecture, technical roadmap, hiring, and I code with the team.",
       },
       {
         title: "Founding engineer",
         description:
           "Early-stage: everything is to build and time is short. From the first database schema to the first users, through the product trade-offs.",
       },
-      {
-        title: "From digitalization to AI",
-        description:
-          "Operations run in spreadsheets and decisions made on intuition. I map, I automate, then I hand what is still repetitive to agents.",
-      },
     ],
+    problems: {
+      label: "Problems I take on",
+      items: [
+        "Business digitalization",
+        "Complex products",
+        "Data-heavy systems",
+        "Architecture",
+        "Automation",
+        "AI & agents",
+      ],
+    },
   },
   contact: {
     kicker: "Contact",
     titleA: "Let's talk about",
     titleB: "the problem",
     intro:
-      "A process to digitalize, an architecture to decide, a product to ship, data to exploit, agents to wire into your business. Write me a few lines of context: I reply with my reading of the problem and a first lead.",
+      "Describe the situation in a few lines: what is stuck, what is still done by hand, what you cannot decide. I reply with how I read the problem and the first thing I would build.",
     availability:
-      "Open to freelance, fractional CTO and founding engineer roles, on products with real technical and business interest. antoine@andrieu.me",
+      "I take few engagements at a time. Freelance, fractional CTO or founding engineer, on problems worth the technical effort. antoine@andrieu.me",
     ctaPrimary: "Describe your problem",
     alt: "Antoine Andrieu seated, smiling, in a beige turtleneck.",
   },

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://antoineandrieu.com"),
   title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
   description:
-    "15 ans d'ingénierie : digitalisation des opérations (Odoo), architecture et développement full-stack, data (PostgreSQL), agents IA. Disponible en freelance, CTO fractionné ou founding engineer.",
+    "Du problème métier au système en production : je comprends comment une entreprise fonctionne, je tranche ce qui mérite d'être construit, puis je le construis et je l'exploite. 15 ans d'ingénierie, dont 5 en early-stage.",
   alternates: {
     canonical: "/",
     languages: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
     description:
-      "Je discute le besoin, j'arbitre ce qui mérite d'être construit, puis je livre moi-même. Odoo, PostgreSQL, agents IA.",
+      "J'arrive avant les specs : comprendre l'entreprise, décider quoi construire, puis livrer le système en production. Freelance, CTO fractionné ou founding engineer.",
     url: "https://antoineandrieu.com",
     siteName: "Antoine Andrieu",
     locale: "fr_FR",

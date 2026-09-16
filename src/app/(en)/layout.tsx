@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://antoineandrieu.com"),
   title: "Antoine Andrieu — Product engineer, hands-on CTO & founding engineer",
   description:
-    "15 years of engineering: operations digitalization (Odoo), full-stack architecture and development, data (PostgreSQL), AI agents. Available for freelance, fractional CTO or founding engineer roles.",
+    "From business problem to a system in production: I work out how a company actually runs, decide what is worth building, then build and operate it. 15 years of engineering, 5 of them in early-stage.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Antoine Andrieu — Product engineer, hands-on CTO & founding engineer",
     description:
-      "I discuss the need, decide what is worth building, then ship it myself. Odoo, PostgreSQL, AI agents.",
+      "I show up before the specs: understand the business, decide what to build, then ship the system to production. Freelance, fractional CTO or founding engineer.",
     url: "https://antoineandrieu.com/en",
     siteName: "Antoine Andrieu",
     locale: "en_US",

@@ -100,9 +100,11 @@ export function HomePage({ t }: { t: HomeContent }) {
             {t.projects.items.map((project, i) => (
               <div key={project.title} className="project-entry py-8">
                 <p className="row-index text-lg mb-6">0{i + 1}</p>
-                <h3 className="display text-3xl mb-3">
+                <p className="project-stage">{project.stage}</p>
+                <h3 className="display text-3xl mb-2">
                   {project.title}
                 </h3>
+                <p className="text-sm font-medium mb-4">{project.role}</p>
                 <p className="text-muted-site leading-relaxed mb-6 flex-1">
                   {project.description}
                 </p>
@@ -194,6 +196,16 @@ export function HomePage({ t }: { t: HomeContent }) {
                 </p>
               </div>
             ))}
+          </div>
+          <div className="mt-12">
+            <p className="text-sm font-medium mb-4">{t.collaboration.problems.label}</p>
+            <div className="tech-list">
+              {t.collaboration.problems.items.map((problem) => (
+                <span key={problem} className="chip">
+                  {problem}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

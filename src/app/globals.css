@@ -6,9 +6,9 @@
   --color-ink: #1a1a1a;
   --color-muted: #64645e;
   --color-border: #e2e0d9;
-  --color-accent: #ff7900;
-  --color-accent-display: #df5d00;
-  --color-accent-ink: #ba4800;
+  --color-accent: #ff5a1f;
+  --color-accent-display: #f03f00;
+  --color-accent-ink: #d13700;
 }
 
 html {
@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 .badge-available { display: flex; align-items: center; gap: .6rem; font-size: .75rem; color: var(--color-muted); }
 .badge-available .dot { width: .4rem; height: .4rem; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; }
 
-/* Orange primary action, with dark text for contrast. */
+/* Orange primary action (#ff5a1f), with dark text for contrast. */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -156,7 +156,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Projects remain content-led, without decorative cards or fake links. */
+/* Maturity label: lets a visitor tell a side project from a shipped system. */
 .project-entry { border-top: 1px solid var(--color-border); }
+.project-stage { font-size: .7rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--color-accent-ink); margin-bottom: .6rem; }
 .tech-list { display: flex; flex-wrap: wrap; column-gap: .75rem; row-gap: .4rem; }
 .chip { font-size: .75rem; color: var(--color-muted); }
 .chip:not(:last-child)::after { content: "/"; margin-left: .75rem; color: #a3a39c; }
@@ -275,8 +277,10 @@ picture img { display: block; width: 100%; height: auto; }
 .header-inner { max-width: 88rem; margin-inline: auto; padding-inline: 2rem; height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; background: rgb(255 255 255 / .68); backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5); border: 1px solid rgb(226 224 217 / .9); border-radius: 999px; box-shadow: 0 4px 16px rgb(26 26 26 / .04); transition: height 260ms cubic-bezier(.2,.7,.2,1), box-shadow 260ms ease, background-color 260ms ease; }
 .site-header.is-scrolled .header-inner { height: 62px; background: rgb(255 255 255 / .88); box-shadow: 0 14px 34px rgb(26 26 26 / .1); }
 .header-brand { display: inline-flex; align-items: center; gap: .7rem; flex-shrink: 0; }
-.header-brand svg { transition: transform 260ms cubic-bezier(.2,.7,.2,1); transform-origin: left center; }
-.site-header.is-scrolled .header-brand svg { transform: scale(.8); }
+/* Le logo est une <img> (logo.tsx), jamais un <svg> inline : on pilote donc sa hauteur
+   reelle pour qu'il tienne dans la capsule, qui passe de 84px a 62px au scroll. */
+.header-brand .logo { display: block; width: auto; height: 60px; transition: height 260ms cubic-bezier(.2,.7,.2,1); }
+.site-header.is-scrolled .header-brand .logo { height: 46px; }
 .brand-mark { color: var(--color-accent); font-size: 2.8rem; line-height: 1; display: block; transition: transform 350ms cubic-bezier(.2,.7,.2,1); }
 .brand-name { font-family: var(--font-display), sans-serif; font-size: 2.15rem; font-weight: 800; line-height: .82; letter-spacing: -.02em; text-transform: uppercase; transition: font-size 260ms cubic-bezier(.2,.7,.2,1); }
 .site-header.is-scrolled .brand-name { font-size: 1.7rem; }
@@ -291,7 +295,7 @@ picture img { display: block; width: 100%; height: auto; }
 .mobile-navigation > a.mobile-lang-switch { justify-content: flex-start; color: var(--color-muted); font: 500 .8rem var(--font-body), sans-serif; text-transform: none; letter-spacing: 0; border: 0; padding-inline: 0; }
 .header-contact { display: inline-flex; align-items: center; gap: 1.25rem; padding: .4rem .4rem .4rem 1.15rem; background: var(--color-accent); font-size: .8rem; font-weight: 600; border-radius: 999px; transition: background 180ms ease; }
 .header-arrow { width: 2rem; height: 2rem; display: grid; place-items: center; background: var(--color-ink); color: white; border-radius: 999px; font-size: 1.15rem; transition: transform 200ms ease; }
-.header-contact:is(:hover, :focus-visible) { background: #ff922e; }
+.header-contact:is(:hover, :focus-visible) { background: #ff7847; }
 .header-contact:is(:hover, :focus-visible) .header-arrow { transform: rotate(45deg); }
 .menu-toggle { display: none; }
 
@@ -316,6 +320,8 @@ button:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 5px;
   .header-desktop-nav { display: none; }
   .brand-mark { font-size: 2.25rem; }
   .brand-name { font-size: 1.65rem; }
+  .header-brand .logo { height: 46px; }
+  .site-header.is-scrolled .header-brand .logo { height: 40px; }
   .site-header.is-scrolled .brand-name { font-size: 1.45rem; }
   .header-contact { gap: .75rem; }
   .menu-toggle { display: flex; position: relative; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--color-border); border-radius: 999px; cursor: pointer; }
