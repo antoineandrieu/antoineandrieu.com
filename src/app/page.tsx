@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Portrait } from "@/components/portrait";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -193,8 +192,8 @@ export default function Home() {
               early-stage : digitalisation des opérations, architecture et API, donnée, agents IA.
             </p>
             <div className="hero-actions flex flex-wrap gap-3">
-              <Link href="#projects" className="btn-primary">Voir ce que je construis <span aria-hidden>↗</span></Link>
-              <Link href="#collaborer" className="btn-secondary">Comment travailler ensemble</Link>
+              <a href="#projects" className="btn-primary">Voir ce que je construis <span aria-hidden>↗</span></a>
+              <a href="#collaborer" className="btn-secondary">Comment travailler ensemble</a>
             </div>
             <p className="badge-available"><span className="dot" aria-hidden />Disponible en freelance, CTO fractionné ou founding engineer</p>
           </div>
