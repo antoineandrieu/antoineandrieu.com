@@ -6,9 +6,9 @@
   --color-ink: #1a1a1a;
   --color-muted: #64645e;
   --color-border: #e2e0d9;
-  --color-accent: #ff5a1f;
-  --color-accent-display: #f03f00;
-  --color-accent-ink: #d13700;
+  --color-accent: #ff6500;
+  --color-accent-display: #e85c00;
+  --color-accent-ink: #bf4c00;
 }
 
 html {
@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 .badge-available { display: flex; align-items: center; gap: .6rem; font-size: .75rem; color: var(--color-muted); }
 .badge-available .dot { width: .4rem; height: .4rem; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; }
 
-/* Orange primary action (#ff5a1f), with dark text for contrast. */
+/* Orange #ff6500 : les libellés foncés tiennent 5.9:1 sur ce fond. */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -295,7 +295,7 @@ picture img { display: block; width: 100%; height: auto; }
 .mobile-navigation > a.mobile-lang-switch { justify-content: flex-start; color: var(--color-muted); font: 500 .8rem var(--font-body), sans-serif; text-transform: none; letter-spacing: 0; border: 0; padding-inline: 0; }
 .header-contact { display: inline-flex; align-items: center; gap: 1.25rem; padding: .4rem .4rem .4rem 1.15rem; background: var(--color-accent); font-size: .8rem; font-weight: 600; border-radius: 999px; transition: background 180ms ease; }
 .header-arrow { width: 2rem; height: 2rem; display: grid; place-items: center; background: var(--color-ink); color: white; border-radius: 999px; font-size: 1.15rem; transition: transform 200ms ease; }
-.header-contact:is(:hover, :focus-visible) { background: #ff7847; }
+.header-contact:is(:hover, :focus-visible) { background: #ff9652; }
 .header-contact:is(:hover, :focus-visible) .header-arrow { transform: rotate(45deg); }
 .menu-toggle { display: none; }
 

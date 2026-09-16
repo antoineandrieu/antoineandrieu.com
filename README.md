@@ -22,7 +22,7 @@ Attention : les numéros des fichiers sources ne correspondent pas tous aux desc
 
 Trois images suffisent à raconter le parcours. Les variantes 004, 007, 010, 011, 012 et 021 sont redondantes ; 003 apporte une posture plus formelle déjà couverte par le contact ; 006, 020 et 023 introduiraient une rupture N&B sans contenu distinct pour la justifier ; 024 et 026 conviendraient à un récit personnel absent de la page actuelle.
 
-Typographie et contenu existants conservés, fond blanc, orange vif (#ff5a1f) sur les actions principales et les accents du hero, projets sans cartes décoratives, technologies en texte simple. Aucune retouche du visage, des vêtements ou des tatouages.
+Typographie et contenu existants conservés, fond blanc, orange (#ff6500) sur les actions principales et les accents du hero, projets sans cartes décoratives, technologies en texte simple. Aucune retouche du visage, des vêtements ou des tatouages.
 
 ## Header interactif
 
