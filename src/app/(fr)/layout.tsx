@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Big_Shoulders, Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const bigShoulders = Big_Shoulders({
   variable: "--font-display",
@@ -15,9 +15,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://antoineandrieu.com"),
   title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
   description:
-    "12 ans d'ingénierie : digitalisation des opérations (Odoo), architecture et développement full-stack, data (PostgreSQL), agents IA. Disponible en freelance, CTO fractionné ou founding engineer.",
+    "15 ans d'ingénierie : digitalisation des opérations (Odoo), architecture et développement full-stack, data (PostgreSQL), agents IA. Disponible en freelance, CTO fractionné ou founding engineer.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      fr: "/",
+      en: "/en",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
     description:
@@ -33,6 +42,9 @@ export const metadata: Metadata = {
   },
 };
 
+// Auto-switch: first visit, English browser, no manual choice stored -> /en.
+const langDetect = `try{if(!localStorage.getItem("aa-lang")&&/^en/i.test(navigator.language))location.replace("/en")}catch(e){}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,6 +55,7 @@ export default function RootLayout({
       <body
         className={`${bigShoulders.variable} ${inter.variable} antialiased`}
       >
+        <script dangerouslySetInnerHTML={{ __html: langDetect }} />
         {children}
       </body>
     </html>

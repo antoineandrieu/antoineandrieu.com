@@ -3,16 +3,9 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "./logo";
+import type { HomeContent } from "@/content/home";
 
-const links = [
-  ["about", "À propos"],
-  ["expertise", "Expertise"],
-  ["projects", "Projets"],
-  ["experience", "Expérience"],
-  ["collaborer", "Collaborer"],
-] as const;
-
-export function SiteHeader() {
+export function SiteHeader({ t }: { t: HomeContent }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const header = useRef<HTMLElement>(null);
@@ -49,6 +42,10 @@ export function SiteHeader() {
     }
   }
 
+  function rememberLang() {
+    try { localStorage.setItem("aa-lang", t.otherLang.lang); } catch {}
+  }
+
   return (
     <header
       ref={header}
@@ -64,20 +61,29 @@ export function SiteHeader() {
       }}
     >
       <div className="header-inner">
-        <Link href="/" className="header-brand" aria-label="Antoine Andrieu — Accueil">
+        <Link href={t.home} className="header-brand" aria-label={t.header.brandAria}>
           <Logo width={92} height={60} />
           <span className="brand-name">Antoine<br />Andrieu<span className="brand-period">.</span></span>
         </Link>
         <nav className="header-desktop-nav" aria-label="Navigation principale">
-          {links.map(([id, label]) => (
+          {t.header.nav.map(([id, label]) => (
             <a href={`#${id}`} className="header-link" key={id}>
               <span>{label}</span>
             </a>
           ))}
         </nav>
         <div className="header-actions">
-          <a href="#contact" aria-label="Parlons de votre produit" className="header-contact" onClick={() => { if (open) navigate("contact"); }}>
-            <span>Parlons produit</span><span className="header-arrow" aria-hidden="true">↗</span>
+          <a
+            href={t.otherLang.href}
+            className="lang-switch"
+            aria-label={t.otherLang.aria}
+            hrefLang={t.otherLang.lang}
+            onClick={rememberLang}
+          >
+            {t.otherLang.label}
+          </a>
+          <a href="#contact" aria-label={t.header.contactAria} className="header-contact" onClick={() => { if (open) navigate("contact"); }}>
+            <span>{t.header.contactCta}</span><span className="header-arrow" aria-hidden="true">↗</span>
           </a>
           <button
             ref={toggle}
@@ -85,7 +91,7 @@ export function SiteHeader() {
             className="menu-toggle"
             aria-expanded={open}
             aria-controls="mobile-navigation"
-            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-label={open ? t.header.menuClose : t.header.menuOpen}
             onClick={() => setOpen(!open)}
           >
             <span /><span />
@@ -93,15 +99,24 @@ export function SiteHeader() {
         </div>
       </div>
       <nav id="mobile-navigation" className="mobile-navigation" aria-label="Navigation mobile" hidden={!open}>
-        <p className="mobile-nav-label">Explorer</p>
-        {links.map(([id, label], index) => (
+        <p className="mobile-nav-label">{t.header.mobileLabel}</p>
+        {t.header.nav.map(([id, label], index) => (
           <a href={`#${id}`} key={id} onClick={() => navigate(id)}>
             <span className="mobile-nav-number" aria-hidden="true">0{index + 1}</span>
             <span>{label}</span><span className="mobile-nav-arrow" aria-hidden="true">↗</span>
           </a>
         ))}
         <a href="#contact" className="mobile-contact" onClick={() => navigate("contact")}>
-          Parlons de votre produit <span aria-hidden="true">↗</span>
+          {t.header.mobileContact} <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href={t.otherLang.href}
+          className="lang-switch mobile-lang-switch"
+          aria-label={t.otherLang.aria}
+          hrefLang={t.otherLang.lang}
+          onClick={rememberLang}
+        >
+          {t.otherLang.aria} <span aria-hidden="true">↗</span>
         </a>
       </nav>
     </header>

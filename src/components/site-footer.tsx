@@ -1,16 +1,17 @@
 import { Logo } from "./logo";
+import type { HomeContent } from "@/content/home";
 
-export function SiteFooter() {
+export function SiteFooter({ t }: { t: HomeContent }) {
   return (
-    <footer className="site-footer" aria-label="Pied de page">
+    <footer className="site-footer" aria-label={t.footer.footerAria}>
       <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-intro">
             <Logo variant="black" width={78} height={51} />
             <p>Product engineer, CTO hands-on<br />& founding engineer</p>
           </div>
-          <nav className="footer-links" aria-label="Liens de contact">
-            <a href="mailto:antoine@andrieu.me">Écrivez-moi <span aria-hidden="true">↗</span></a>
+          <nav className="footer-links" aria-label={t.footer.linksAria}>
+            <a href="mailto:antoine@andrieu.me">{t.footer.writeMe} <span aria-hidden="true">↗</span></a>
             <a href="https://www.linkedin.com/in/antoineand" target="_blank" rel="noopener noreferrer">
               LinkedIn <span aria-hidden="true">↗</span>
             </a>
@@ -22,7 +23,7 @@ export function SiteFooter() {
             </a>
           </nav>
           <a href="#main" className="footer-back">
-            <span>Retour en haut</span>
+            <span>{t.footer.backToTop}</span>
             <span className="footer-back-icon" aria-hidden="true"><span>↑</span></span>
           </a>
         </div>
@@ -30,8 +31,8 @@ export function SiteFooter() {
           <span>Antoine</span><span>Andrieu<span className="footer-period">.</span></span>
         </p>
         <div className="footer-bottom">
-          <p>2026 · Tous droits réservés.</p>
-          <p className="footer-availability"><span aria-hidden="true" />Freelance · CTO fractionné · Founding engineer</p>
+          <p>{t.footer.rights}</p>
+          <p className="footer-availability"><span aria-hidden="true" />{t.footer.availability}</p>
         </div>
       </div>
     </footer>
