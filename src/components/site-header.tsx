@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { Logo } from "./logo";
 
 const links = [
   ["about", "À propos"],
   ["expertise", "Expertise"],
-  ["experience", "Expérience"],
   ["projects", "Projets"],
+  ["experience", "Expérience"],
+  ["collaborer", "Collaborer"],
 ] as const;
 
 export function SiteHeader() {
@@ -62,8 +64,8 @@ export function SiteHeader() {
       }}
     >
       <div className="header-inner">
-        <Link href="/" className="header-brand" aria-label="Antoine Andrieu — accueil">
-          <span className="brand-mark" aria-hidden="true">✳</span>
+        <Link href="/" className="header-brand" aria-label="Antoine Andrieu — Accueil">
+          <Logo width={92} height={60} />
           <span className="brand-name">Antoine<br />Andrieu<span className="brand-period">.</span></span>
         </Link>
         <nav className="header-desktop-nav" aria-label="Navigation principale">
@@ -74,8 +76,8 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="header-actions">
-          <a href="#contact" aria-label="Parlons de votre projet" className="header-contact" onClick={() => { if (open) navigate("contact"); }}>
-            <span>Parlons projet</span><span className="header-arrow" aria-hidden="true">↗</span>
+          <a href="#contact" aria-label="Parlons de votre produit" className="header-contact" onClick={() => { if (open) navigate("contact"); }}>
+            <span>Parlons produit</span><span className="header-arrow" aria-hidden="true">↗</span>
           </a>
           <button
             ref={toggle}
@@ -99,7 +101,7 @@ export function SiteHeader() {
           </a>
         ))}
         <a href="#contact" className="mobile-contact" onClick={() => navigate("contact")}>
-          Parlons de votre projet <span aria-hidden="true">↗</span>
+          Parlons de votre produit <span aria-hidden="true">↗</span>
         </a>
       </nav>
     </header>

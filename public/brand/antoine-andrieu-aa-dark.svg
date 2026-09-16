@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="261" height="170" viewBox="0 0 522 340" role="img" aria-label="Antoine Andrieu" class="aa-logo">
+  <g id="aa-mark" class="aa-mark" fill="#ffffff">
+    <path id="aa-left" class="aa-left" d="M0 336 163 0l109 2 78 193-88-1-45-107-113 249Z"/>
+    <path id="aa-right" class="aa-right" d="m322 76 84 2 115 262-92-1Zm-54 137 90 2 51 124-89-1Z"/>
+  </g>
+  <path id="accent" class="aa-accent" fill="#f36308" d="M203 213h65l-60 124h-64Z"/>
+</svg>

@@ -15,17 +15,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Antoine Andrieu — Full-Stack Engineer & Entrepreneur",
+  title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
   description:
-    "Data Engineer @Mycophyto | Systems Architect | Full-Stack Developer. I turn business vision into real, high-impact products.",
+    "12 ans d'ingénierie : digitalisation des opérations (Odoo), architecture et développement full-stack, data (PostgreSQL), agents IA. Disponible en freelance, CTO fractionné ou founding engineer.",
   openGraph: {
-    title: "Antoine Andrieu — Full-Stack Engineer & Entrepreneur",
+    title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
     description:
-      "Data Engineer @Mycophyto | Systems Architect | Full-Stack Developer.",
+      "Je discute le besoin, j'arbitre ce qui mérite d'être construit, puis je livre moi-même. Odoo, PostgreSQL, agents IA.",
     url: "https://antoineandrieu.com",
     siteName: "Antoine Andrieu",
     locale: "fr_FR",
     type: "website",
+  },
+  icons: {
+    icon: [{ url: "/icons/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
