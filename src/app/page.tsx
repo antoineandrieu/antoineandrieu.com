@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { Portrait } from "@/components/portrait";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 const jobs = [
   {
     role: "Ingénieur Data | Développeur full-stack",
-    company: "MYCOPHYTO",
+    company: "Mycophyto",
     period: "2024 — Présent",
     location: "Grasse, France",
     description:
@@ -21,7 +24,7 @@ const jobs = [
   },
   {
     role: "Co-Founder & CTO",
-    company: "SCIRCULA",
+    company: "Scircula",
     period: "2020 — 2022",
     location: "Amsterdam, Pays-Bas",
     description:
@@ -66,136 +69,148 @@ const projects = [
   },
 ];
 
-const strengths = [
-  "Vision produit",
-  "Analyse business",
-  "Structuration technique",
-  "Exécution rapide",
+const expertise = [
+  {
+    title: "Vision produit",
+    description:
+      "De l'idée à la roadmap : cadrage, priorisation et arbitrages pour construire le bon produit, pas juste un produit.",
+  },
+  {
+    title: "Analyse business",
+    description:
+      "Compréhension du terrain et des enjeux métier avant toute ligne de code. La technique sert le business, jamais l'inverse.",
+  },
+  {
+    title: "Structuration technique",
+    description:
+      "Architectures claires, données fiables, systèmes scalables et maintenables qui tiennent la route en production.",
+  },
+  {
+    title: "Exécution rapide",
+    description:
+      "Livraison itérative, prototypes concrets et mise en production sans friction. La vitesse est une discipline.",
+  },
 ];
+
+const companies = ["Mycophyto", "Arise Travel", "Scircula", "Knap"];
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-clip">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#050410]/80 backdrop-blur-md border-b border-[#1e195a]">
-        <div className="container-site flex items-center justify-between h-16">
-          <Link href="/" className="font-heading font-bold text-lg tracking-tight">
-            AA<span className="text-[#c3f73a]">.</span>
-          </Link>
-          <div className="flex gap-8 text-sm">
-            <Link href="#about" className="text-[#85c0ff] hover:text-white transition-colors">
-              À propos
-            </Link>
-            <Link href="#experience" className="text-[#85c0ff] hover:text-white transition-colors">
-              Expérience
-            </Link>
-            <Link href="#projects" className="text-[#85c0ff] hover:text-white transition-colors">
-              Projets
-            </Link>
-            <Link href="#contact" className="text-[#85c0ff] hover:text-white transition-colors">
-              Contact
-            </Link>
-          </div>
-        </div>
-      </nav>
+    <main id="main" className="min-h-screen">
+      <a href="#content" className="skip-link">Aller au contenu</a>
+      <SiteHeader />
 
-      {/* Hero */}
-      <section className="relative section-pad pt-40 bg-grid">
-        <div
-          aria-hidden
-          className="glow-indigo pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[42rem] w-[42rem] rounded-full"
-        />
-        <div
-          aria-hidden
-          className="glow-accent pointer-events-none absolute top-32 -right-40 h-[28rem] w-[28rem] rounded-full"
-        />
-        <div className="container-site relative">
-          <p className="kicker">Full-Stack Engineer & Entrepreneur</p>
-          <h1 className="display text-[clamp(3.5rem,12vw,9rem)] mb-8">
-            Antoine
-            <br />
-            <span className="text-[#c3f73a]">Andrieu</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-[#85c0ff] max-w-2xl leading-relaxed">
-            Je transforme la vision business en produits concrets et performants.
-            À la croisée de la stratégie, de la donnée et de la technique.
-          </p>
-          <div className="mt-12 flex flex-wrap gap-4">
-            <Link
-              href="#contact"
-              className="px-8 py-4 bg-[#c3f73a] text-[#050410] font-semibold rounded-full hover:bg-[#85c0ff] transition-colors"
-            >
-              Me contacter
-            </Link>
-            <Link
-              href="#projects"
-              className="px-8 py-4 border border-[#1e195a] rounded-full hover:border-[#85c0ff] transition-colors"
-            >
-              Voir mes projets
-            </Link>
+      {/* The landscape composition and mobile crop share one picture request. */}
+      <section id="content" className="hero border-b border-[#e2e0d9]">
+        <div className="hero-stage">
+          <div className="hero-copy">
+            <p className="hero-eyebrow">Senior full-stack engineer & entrepreneur</p>
+            <h1 className="display hero-title">
+              De la vision<br />business au<br />produit <span className="text-accent">concret.</span>
+            </h1>
+            <p className="hero-description text-muted-site">
+              Je transforme les enjeux métier en produits concrets et performants,
+              à la croisée de la stratégie, de la donnée et de la technique.
+            </p>
+            <div className="hero-actions flex flex-wrap gap-3">
+              <Link href="#projects" className="btn-primary">Voir mes projets <span aria-hidden>↗</span></Link>
+              <Link href="#about" className="btn-secondary">À propos</Link>
+            </div>
+            <p className="badge-available"><span className="dot" aria-hidden />Disponible pour de nouvelles missions</p>
+          </div>
+          <Portrait name="hero" className="hero-photo" alt="Antoine Andrieu, en t-shirt blanc, regard caméra et tatouages visibles." />
+        </div>
+      </section>
+
+      {/* Trusted by */}
+      <section className="py-10 border-b border-[#e2e0d9]">
+        <div className="container-site">
+          <p className="kicker !mb-6">Ils m&apos;ont fait confiance</p>
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-4">
+            {companies.map((name) => (
+              <span key={name} className="trusted-name text-2xl md:text-4xl">
+                {name}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="section-pad bg-[#0d0b1e] border-y border-[#1e195a]">
+      <section id="about" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="section-index">01</p>
           <p className="kicker">À propos</p>
-          <h2 className="display text-4xl md:text-6xl mb-10">
-            De la vision business au produit
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 text-lg text-[#85c0ff] leading-relaxed">
-            <p>
-              Ingénieur Data chez Mycophyto (Agritech), architecte systèmes et
-              développeur full-stack. Je conçois des solutions fiables, scalables
-              et créatrices de valeur, notamment dans les secteurs en
-              transformation.
-            </p>
-            <p>
-              Mon approche : comprendre le terrain, structurer la donnée, et
-              concevoir des outils qui améliorent la performance tout en
-              soutenant la durabilité et la croissance.
-            </p>
+          <div className="about-grid">
+            <figure className="about-portrait">
+              <Portrait name="about" alt="Antoine Andrieu souriant, en t-shirt noir, les bras croisés." />
+              <figcaption>Antoine Andrieu <span>Ingénieur & entrepreneur</span></figcaption>
+            </figure>
+            <div className="about-copy">
+              <h2 className="statement text-4xl md:text-6xl mb-8">
+                De la vision business au produit concret — des solutions fiables,
+                scalables et créatrices de valeur.
+              </h2>
+              <div className="space-y-6 text-lg text-muted-site leading-relaxed">
+                <p>Ingénieur Data chez Mycophyto (Agritech), architecte systèmes et
+                  développeur full-stack. Je conçois des solutions pour les secteurs
+                  en transformation, avec un ancrage terrain fort.</p>
+                <p>Mon approche : comprendre le terrain, structurer la donnée, et
+                  concevoir des outils qui améliorent la performance tout en
+                  soutenant la durabilité et la croissance.</p>
+              </div>
+            </div>
           </div>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {strengths.map((item, i) => (
-              <div key={item} className="card p-6">
-                <p className="section-index mb-3">0{i + 1}</p>
-                <p className="font-medium">{item}</p>
+        </div>
+      </section>
+
+      {/* Expertise — Frameblox numbered rows */}
+      <section id="expertise" className="section-pad border-b border-[#e2e0d9]">
+        <div className="container-site">
+          <p className="kicker">Expertise</p>
+          <h2 className="statement text-4xl md:text-6xl mb-14 max-w-3xl">
+            Ce que j&apos;apporte à votre projet
+          </h2>
+          <div className="border-b border-[#e2e0d9]">
+            {expertise.map((item, i) => (
+              <div key={item.title} className="row-item">
+                <p className="row-index">0{i + 1}</p>
+                <h3 className="display text-2xl md:text-3xl">{item.title}</h3>
+                <p className="text-muted-site leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Experience */}
-      <section id="experience" className="section-pad">
+      {/* Experience — awards-list style */}
+      <section id="experience" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="section-index">02</p>
           <p className="kicker">Expérience</p>
-          <h2 className="display text-4xl md:text-6xl mb-14">Parcours</h2>
-          <div className="space-y-8">
+          <h2 className="statement text-4xl md:text-6xl mb-14">Parcours</h2>
+          <div className="border-b border-[#e2e0d9]">
             {jobs.map((job) => (
-              <div key={job.company} className="card p-8">
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                  <h3 className="text-xl font-bold">{job.role}</h3>
-                  <span className="text-[#85c0ff] text-sm">{job.period}</span>
+              <div key={job.company} className="row-item">
+                <p className="row-index">{job.period}</p>
+                <div>
+                  <h3 className="display text-2xl md:text-3xl">
+                    {job.company}
+                  </h3>
+                  <p className="text-sm font-medium mt-1">{job.role}</p>
+                  <p className="text-sm text-muted-site">{job.location}</p>
                 </div>
-                <p className="text-[#c3f73a] font-medium mb-1">{job.company}</p>
-                <p className="text-[#85c0ff] text-sm mb-4">{job.location}</p>
-                <p className="text-[#85c0ff] leading-relaxed mb-4">
-                  {job.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {job.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs border border-[#1e195a] rounded-full text-[#85c0ff]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div>
+                  <p className="text-muted-site leading-relaxed mb-4">
+                    {job.description}
+                  </p>
+                  <div className="tech-list">
+                    {job.tags.map((tag) => (
+                      <span key={tag} className="chip">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -204,37 +219,25 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="section-pad bg-[#0d0b1e] border-y border-[#1e195a]">
+      <section id="projects" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="section-index">03</p>
           <p className="kicker">Projets</p>
-          <h2 className="display text-4xl md:text-6xl mb-14">
+          <h2 className="statement text-4xl md:text-6xl mb-14">
             Projets significatifs
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project, i) => (
-              <div key={project.title} className="card p-8 group">
-                <div className="flex items-start justify-between mb-3">
-                  <p className="section-index">0{i + 1}</p>
-                  <span
-                    aria-hidden
-                    className="text-[#85c0ff] opacity-0 group-hover:opacity-100 group-hover:text-[#c3f73a] transition-all text-xl leading-none"
-                  >
-                    ↗
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-[#c3f73a] transition-colors">
+              <div key={project.title} className="project-entry py-8">
+                <p className="row-index text-lg mb-6">0{i + 1}</p>
+                <h3 className="display text-3xl mb-3">
                   {project.title}
                 </h3>
-                <p className="text-[#85c0ff] leading-relaxed mb-4">
+                <p className="text-muted-site leading-relaxed mb-6 flex-1">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="tech-list">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs border border-[#1e195a] rounded-full text-[#85c0ff]"
-                    >
+                    <span key={tag} className="chip">
                       {tag}
                     </span>
                   ))}
@@ -246,66 +249,38 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="relative section-pad">
-        <div
-          aria-hidden
-          className="glow-blue pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[36rem] w-[36rem] rounded-full"
-        />
-        <div className="container-site relative text-center">
-          <p className="section-index">04</p>
-          <p className="kicker justify-center">Contact</p>
-          <h2 className="display text-5xl md:text-7xl mb-8">
-            Travaillons
-            <br />
-            <span className="text-[#c3f73a]">ensemble</span>
-          </h2>
-          <p className="text-xl text-[#85c0ff] max-w-2xl mx-auto mb-12">
-            Vous avez un projet, une idée, ou besoin d&apos;un regard neuf sur votre
-            stack technique ? Discutons-en.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <a
-              href="mailto:antoine@andrieu.me"
-              className="px-8 py-4 bg-[#c3f73a] text-[#050410] font-semibold rounded-full hover:bg-[#85c0ff] transition-colors"
-            >
-              antoine@andrieu.me
-            </a>
-            <a
-              href="https://www.linkedin.com/in/antoineand"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border border-[#1e195a] rounded-full hover:border-[#85c0ff] transition-colors"
-            >
-              LinkedIn
-            </a>
+      <section id="contact" className="section-pad">
+        <div className="container-site contact-grid">
+          <Portrait name="contact" className="contact-portrait" alt="Antoine Andrieu assis, souriant, en col roulé beige." />
+          <div>
+            <p className="kicker">Contact</p>
+            <h2 className="display text-[clamp(3.5rem,7vw,6.5rem)] mb-8">
+              Travaillons
+              <br />
+              ensemble
+            </h2>
+            <p className="text-xl text-muted-site max-w-2xl mb-10">
+              Vous avez un projet, une idée, ou besoin d&apos;un regard neuf sur
+              votre stack technique ? Discutons-en.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="mailto:antoine@andrieu.me" className="btn-primary">
+                antoine@andrieu.me
+              </a>
+              <a
+                href="https://www.linkedin.com/in/antoineand"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                LinkedIn <span aria-hidden>↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[#1e195a] py-12">
-        <div className="container-site flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#85c0ff] text-sm">
-            © 2026 Antoine Andrieu. Tous droits réservés.
-          </p>
-          <div className="flex gap-6 text-sm">
-            <a
-              href="https://www.linkedin.com/in/antoineand"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#85c0ff] hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="mailto:antoine@andrieu.me"
-              className="text-[#85c0ff] hover:text-white transition-colors"
-            >
-              Email
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

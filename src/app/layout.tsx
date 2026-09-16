@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { League_Spartan, Lato } from "next/font/google";
+import { Big_Shoulders, Inter } from "next/font/google";
 import "./globals.css";
 
-const leagueSpartan = League_Spartan({
-  variable: "--font-heading",
+const bigShoulders = Big_Shoulders({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const lato = Lato({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,9 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="dark">
+    <html lang="fr">
       <body
-        className={`${leagueSpartan.variable} ${lato.variable} antialiased bg-[#050410] text-white`}
+        className={`${bigShoulders.variable} ${inter.variable} antialiased`}
       >
         {children}
       </body>

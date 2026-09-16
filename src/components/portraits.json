@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "width": 6048,
+    "height": 4024,
+    "widths": [
+      768,
+      1280,
+      1920,
+      2560
+    ]
+  },
+  "hero-mobile": {
+    "width": 3700,
+    "height": 3700,
+    "widths": [
+      480,
+      768,
+      1080
+    ]
+  },
+  "about": {
+    "width": 4024,
+    "height": 6048,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "contact": {
+    "width": 4024,
+    "height": 6048,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  }
+}
