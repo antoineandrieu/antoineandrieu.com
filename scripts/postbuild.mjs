@@ -73,6 +73,7 @@ for (const page of pages) {
     ["no runtime chunk reference left", !/_next\/static\/chunks\/[^"]*\.js/.test(stripped)],
     ["no RSC payload left", !stripped.includes("self.__next_f")],
     ["header script kept", !html.includes('querySelector(".site-header")') || stripped.includes('querySelector(".site-header")')],
+    ["analytics script kept", !html.includes('src="/temps.min.js"') || stripped.includes('src="/temps.min.js"')],
     ...carried.map((id) => [`section #${id} kept`, stripped.includes(`id="${id}"`)]),
   ];
   const failed = checks.filter(([, ok]) => !ok).map(([name]) => name);

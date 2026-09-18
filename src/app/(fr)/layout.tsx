@@ -56,6 +56,7 @@ export default function RootLayout({
         className={`${bigShoulders.variable} ${inter.variable} antialiased`}
       >
         <script dangerouslySetInnerHTML={{ __html: langDetect }} />
+        <script defer src="/temps.min.js" />
         {children}
       </body>
     </html>

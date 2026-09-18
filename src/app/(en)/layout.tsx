@@ -52,6 +52,7 @@ export default function RootLayout({
       <body
         className={`${bigShoulders.variable} ${inter.variable} antialiased`}
       >
+        <script defer src="/temps.min.js" />
         {children}
       </body>
     </html>
