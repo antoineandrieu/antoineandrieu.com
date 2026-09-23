@@ -23,6 +23,7 @@ if (process.env.OTEL_EXPORTER_OTLP_ENDPOINT) {
     traceExporter: new OTLPTraceExporter(),
   });
   telemetrySdk.start();
+  console.log("OpenTelemetry tracing enabled");
 }
 
 export function captureException(error) {
