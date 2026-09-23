@@ -28,7 +28,7 @@ export function SiteFooter({ t }: { t: HomeContent }) {
           </a>
         </div>
         <p className="footer-wordmark">
-          <span>Antoine</span><span>Andrieu<span className="footer-period">.</span></span>
+          <span>Antoine</span><span>Andrieu</span>
         </p>
         <div className="footer-bottom">
           <p>{t.footer.rights}</p>

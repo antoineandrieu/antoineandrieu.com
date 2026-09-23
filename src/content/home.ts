@@ -128,7 +128,7 @@ export const fr: HomeContent = {
     titleA: "Du problème métier",
     titleB: "au système",
     titleCPrefix: "en ",
-    titleCAccent: "production.",
+    titleCAccent: "production",
     description:
       "J'arrive avant les specs : je comprends comment l'entreprise fonctionne, je tranche ce qui mérite d'être construit, puis je construis, je déploie et je réponds quand ça casse. 15 ans d'ingénierie, dont 5 en early-stage.",
     ctaPrimary: "Voir ce que j'ai construit",
@@ -384,7 +384,7 @@ export const en: HomeContent = {
     titleA: "From business problem",
     titleB: "to a system",
     titleCPrefix: "in ",
-    titleCAccent: "production.",
+    titleCAccent: "production",
     description:
       "I show up before the specs: I work out how the business actually runs, decide what is worth building, then build it, deploy it and answer when it breaks. 15 years of engineering, 5 of them in early-stage.",
     ctaPrimary: "See what I built",
