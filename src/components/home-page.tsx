@@ -116,7 +116,9 @@ export function HomePage({ t }: { t: HomeContent }) {
             <EditorialHeading accent="production">{t.projects.heading}</EditorialHeading>
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {t.projects.items.map((project, i) => (
+            {[...t.projects.items]
+              .sort((a, b) => (a.priority ?? Number.MAX_SAFE_INTEGER) - (b.priority ?? Number.MAX_SAFE_INTEGER))
+              .map((project, i) => (
               <div key={project.title} className="project-entry py-8">
                 <p className="row-index text-lg mb-6">0{i + 1}</p>
                 <p className="project-stage">{project.stage}</p>
@@ -135,7 +137,7 @@ export function HomePage({ t }: { t: HomeContent }) {
                   ))}
                 </div>
               </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>

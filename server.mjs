@@ -4,6 +4,7 @@ import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { constants as zlibConstants, createBrotliCompress, createGzip } from "node:zlib";
+import { captureException, shutdownTelemetry } from "./tracing.mjs";
 
 const root = fileURLToPath(new URL("./dist/", import.meta.url));
 const port = Number(process.env.PORT || 3000);
@@ -61,9 +62,15 @@ function negotiateEncoding(acceptEncoding, contentType) {
   return null;
 }
 
-createServer(async (request, response) => {
+let isShuttingDown = false;
+
+const server = createServer(async (request, response) => {
   try {
     const pathname = new URL(request.url || "/", "http://localhost").pathname;
+    if (pathname === "/healthz") {
+      response.writeHead(isShuttingDown ? 503 : 200, { "Content-Type": "application/json" });
+      return response.end('{"status":"ok"}');
+    }
     const file = await resolveFile(pathname);
     const statusCode = file.endsWith("404.html") ? 404 : 200;
     const contentType = types[extname(file)] || "application/octet-stream";
@@ -99,9 +106,29 @@ createServer(async (request, response) => {
   } catch (error) {
     const statusCode = error instanceof URIError ? 400 : 500;
     const message = statusCode === 400 ? "Bad Request" : "Internal Server Error";
+    if (statusCode === 500) captureException(error);
     response.writeHead(statusCode, { "Content-Type": "text/plain; charset=utf-8" });
     response.end(message);
   }
-}).listen(port, "0.0.0.0", () => {
+});
+
+server.on("error", captureException);
+server.listen(port, "0.0.0.0", () => {
   console.log(`Portfolio listening on 0.0.0.0:${port}`);
+});
+
+process.once("SIGTERM", () => {
+  isShuttingDown = true;
+  const exit = () => shutdownTelemetry().finally(() => process.exit(0));
+  server.close(exit);
+  setTimeout(exit, 9_000).unref();
+});
+
+process.once("uncaughtException", (error) => {
+  captureException(error);
+  shutdownTelemetry().finally(() => process.exit(1));
+});
+
+process.on("unhandledRejection", (reason) => {
+  captureException(reason instanceof Error ? reason : new Error(String(reason)));
 });

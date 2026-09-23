@@ -11,6 +11,8 @@ export interface Job {
 
 export interface Project {
   title: string;
+  /** Display priority on the portfolio; lower values are shown first. */
+  priority?: number;
   /** Maturity label: production, startup, internal tooling. Lets a visitor tell a side project from a shipped system. */
   stage: string;
   /** What I personally owned on it. */
@@ -116,10 +118,10 @@ export const fr: HomeContent = {
       ["experience", "Expérience"],
       ["collaborer", "Collaborer"],
     ],
-    contactCta: "Parler du problème",
-    contactAria: "Parler de votre problème",
+    contactCta: "Discutons",
+    contactAria: "Discutons de votre projet",
     mobileLabel: "Explorer",
-    mobileContact: "Parler de votre problème",
+    mobileContact: "Discutons",
     menuOpen: "Ouvrir le menu",
     menuClose: "Fermer le menu",
   },
@@ -130,10 +132,10 @@ export const fr: HomeContent = {
     titleCPrefix: "en ",
     titleCAccent: "production",
     description:
-      "J'arrive avant les specs : je comprends comment l'entreprise fonctionne, je tranche ce qui mérite d'être construit, puis je construis, je déploie et je réponds quand ça casse. 15 ans d'ingénierie, dont 5 en early-stage.",
+      "Je prends un sujet là où il en est : problème métier encore flou, projet qui patine ou produit devenu fragile. Je clarifie ce qui compte, je construis ou je reprends, puis je le mets sous contrôle en production. 15 ans d'ingénierie, dont 5 en early-stage.",
     ctaPrimary: "Voir ce que j'ai construit",
     ctaSecondary: "Comment travailler ensemble",
-    badge: "Freelance, CTO fractionné ou founding engineer.",
+    badge: "Nouveau système, projet à reprendre ou produit à fiabiliser.",
     alt: "Antoine Andrieu, en t-shirt blanc, regard caméra et tatouages visibles.",
   },
   trustedKicker: "J'ai construit chez",
@@ -141,11 +143,11 @@ export const fr: HomeContent = {
     kicker: "À propos",
     captionRole: "Product engineer & CTO hands-on",
     alt: "Antoine Andrieu souriant, en t-shirt noir, les bras croisés.",
-    statement: "Je travaille sur des problèmes qui n'ont pas encore de forme logicielle.",
+    statement: "Je transforme le flou en systèmes fiables.",
     paragraphs: [
-      "Je commence par le modèle économique et le processus réel : qui décide quoi, où l'information se perd, ce qui n'a jamais été écrit. De là je descends au produit, à l'architecture, au modèle de données et au code, et je reste sur le système jusqu'à ce qu'il tourne en production.",
-      "Le fil est le même depuis quinze ans : métier, produit, système, donnée, automatisation, et maintenant agents. Aujourd'hui : la pipeline de données, l'entrepôt et les API qui alimentent les applications internes de Mycophyto. Avant : ingénieur senior à San Francisco chez Arise Travel, co-fondateur et CTO de Scircula à Amsterdam, backend chez Knap, Meta IT et Izargolf. Ce parcours s'est fait en anglais, à distance, avec des équipes aux États-Unis, aux Pays-Bas et en Afrique du Sud.",
-      "Pour comprendre un métier, je regarde le travail réel : j'ai besoin d'un accès direct à ceux qui le font et à ceux qui décident, pas d'un cahier des charges. C'est de là que sortent les arbitrages.",
+      "Je commence par le travail réel : comment l'activité fonctionne, qui décide, où l'information se perd et quelles règles restent dans les têtes. J'en fais des choix de produit, une architecture, un modèle de données et du code. Puis je reste jusqu'à ce que le système tourne — ou je reprends l'existant jusqu'à ce que l'équipe puisse à nouveau s'y fier.",
+      "Depuis quinze ans, le fil est le même : comprendre une opération, rendre le problème lisible, puis construire ou fiabiliser le système qui la porte. Aujourd'hui, chez Mycophyto, je travaille sur les pipelines de données, l'entrepôt et les API qui alimentent les applications internes. Avant cela : ingénieur senior à distance chez Arise Travel, basée à San Francisco, cofondateur et CTO à distance de Scircula, basée à Amsterdam, puis des rôles backend chez Knap, Meta IT et Izargolf. Ce parcours s'est fait en anglais, avec des équipes aux États-Unis, aux Pays-Bas, en Afrique du Sud et au Brésil.",
+      "Je ne pars pas d'un cahier des charges. Pour comprendre un métier, j'ai besoin de parler à celles et ceux qui font le travail comme à celles et ceux qui prennent les décisions. C'est là que se trouvent les vrais arbitrages.",
     ],
   },
   expertise: {
@@ -155,7 +157,7 @@ export const fr: HomeContent = {
       {
         title: "Les opérations tournent sur des tableurs",
         description:
-          "Je cartographie le processus réel, puis je le remplace par un ERP que les équipes utilisent parce qu'il suit leur façon de travailler, avec la reprise de l'historique. La cartographie du métier vient avant l'installation d'un logiciel.",
+          "Je cartographie le processus réel, puis je choisis la bonne approche : adapter un ERP comme Odoo lorsqu'il fournit le bon socle, ou concevoir un produit full-stack sur mesure lorsque le métier le demande. Dans les deux cas, le système suit la façon de travailler des équipes et reprend l'historique utile.",
       },
       {
         title: "Vos systèmes ne se parlent pas",
@@ -209,6 +211,7 @@ export const fr: HomeContent = {
       },
       {
         title: "Digitalisation d'opérations",
+        priority: 2,
         stage: "Clients · en production",
         role: "Modules sur mesure, connecteurs, reprise des données",
         description:
@@ -225,6 +228,7 @@ export const fr: HomeContent = {
       },
       {
         title: "Scircula",
+        priority: 1,
         stage: "Startup · 2020-2022",
         role: "Co-fondateur & CTO",
         description:
@@ -250,7 +254,7 @@ export const fr: HomeContent = {
         role: "Ingénieur Full Stack Senior",
         company: "Arise Travel",
         period: "2022 — 2024",
-        location: "San Francisco, USA",
+        location: "À distance · San Francisco, USA",
         description:
           "Prototype de standard téléphonique par IA et réseau privé Hyperledger Fabric pour la réservation d'hôtel, deux implémentations du standard. Dashboard temps réel, conteneurs orchestrés.",
         tags: ["Python", "FastAPI", "TypeScript", "Kubernetes", "OpenAI", "AWS"],
@@ -259,7 +263,7 @@ export const fr: HomeContent = {
         role: "Co-fondateur & CTO",
         company: "Scircula",
         period: "2020 — 2022",
-        location: "Amsterdam, Pays-Bas",
+        location: "À distance · Amsterdam, Pays-Bas",
         description:
           "Roadmap produit, architecture, recrutement et code, jusqu'à la fin de l'aventure.",
         tags: ["Python", "Django", "Next.js", "React", "AWS"],
@@ -299,30 +303,30 @@ export const fr: HomeContent = {
     groups: [
       { title: "Digitalisation & ERP", items: ["Odoo", "Python", "n8n"] },
       { title: "Backend & API", items: ["TypeScript", "Node.js", "NestJS", "FastAPI", "Django", "GraphQL"] },
-      { title: "Données", items: ["PostgreSQL", "Prisma", "dbt", "SQL"] },
+      { title: "Données", items: ["PostgreSQL", "dbt", "Prefect", "Airbyte", "SQL"] },
       { title: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
       { title: "Infra & delivery", items: ["Docker", "Kubernetes", "AWS", "GitLab CI/CD", "Linux"] },
-      { title: "IA & agents", items: ["Hermes Agent", "MCP", "OpenAI", "Deepgram", "Whisper"] },
+      { title: "IA & agents", items: ["Hermes Agent", "MCP", "OpenAI", "OpenRouter", "Anthropic"] },
     ],
   },
   collaboration: {
     kicker: "Collaboration",
-    heading: "Trois façons de travailler ensemble",
+    heading: "Les systèmes que je construis, reprends ou fiabilise.",
     items: [
       {
-        title: "Mission freelance",
+        title: "Construire un nouveau système",
         description:
-          "Un problème à transformer en système : cadrage, architecture, développement, mise en production. Périmètre écrit, et des livrables qui tournent.",
+          "Un problème métier à transformer en produit ou en outil : cadrage, architecture, développement et mise en production. Le bon système avant la bonne stack.",
       },
       {
-        title: "CTO fractionné",
+        title: "Reprendre un projet qui patine",
         description:
-          "Un produit et une équipe, pas encore de direction technique. Architecture, roadmap technique, recrutement, et je code avec l'équipe.",
+          "Un projet existe déjà, mais les décisions, la dette ou la livraison le ralentissent. Je cartographie l'existant, tranche les priorités et remets une trajectoire de livraison en place.",
       },
       {
-        title: "Founding engineer",
+        title: "Fiabiliser un produit existant",
         description:
-          "Early-stage : tout est à construire et le temps manque. Du premier schéma de base de données aux premiers utilisateurs, en passant par les arbitrages produit.",
+          "Code fragile, dépendances risquées, flux mal compris ou dette qui empêche d'avancer : je sécurise l'essentiel et je refactore sans bloquer l'activité.",
       },
     ],
     problems: {
@@ -332,6 +336,8 @@ export const fr: HomeContent = {
         "Produits complexes",
         "Systèmes data-heavy",
         "Architecture",
+        "Reprise de projet",
+        "Refactoring & fiabilisation",
         "Automatisation",
         "IA & agents",
       ],
@@ -344,15 +350,15 @@ export const fr: HomeContent = {
     intro:
       "Décrivez la situation en quelques lignes : ce qui coince, ce qui tourne encore à la main, ce que vous n'arrivez pas à trancher. Je réponds avec ma lecture du problème et la première chose que je construirais.",
     availability:
-      "Je prends peu de missions à la fois. Freelance, CTO fractionné ou founding engineer, sur des problèmes qui valent l'effort technique. antoine@andrieu.me",
-    ctaPrimary: "Décrire votre problème",
+      "Je prends peu de missions à la fois. Mission freelance, CTO fractionné ou founding engineer : pour construire, reprendre ou fiabiliser un système qui vaut l'effort technique. antoine@andrieu.me",
+    ctaPrimary: "Discutons",
     alt: "Antoine Andrieu assis, souriant, en col roulé beige.",
   },
   footer: {
     writeMe: "Écrivez-moi",
     backToTop: "Retour en haut",
     rights: "2026 · Tous droits réservés.",
-    availability: "Freelance · CTO fractionné · Founding engineer",
+    availability: "Construire · Reprendre · Fiabiliser",
     footerAria: "Pied de page",
     linksAria: "Liens de contact",
   },
@@ -372,10 +378,10 @@ export const en: HomeContent = {
       ["experience", "Experience"],
       ["collaborer", "Work together"],
     ],
-    contactCta: "Talk about the problem",
-    contactAria: "Talk about your problem",
+    contactCta: "Start a conversation",
+    contactAria: "Start a conversation about your project",
     mobileLabel: "Explore",
-    mobileContact: "Talk about your problem",
+    mobileContact: "Start a conversation",
     menuOpen: "Open menu",
     menuClose: "Close menu",
   },
@@ -386,10 +392,10 @@ export const en: HomeContent = {
     titleCPrefix: "in ",
     titleCAccent: "production",
     description:
-      "I show up before the specs: I work out how the business actually runs, decide what is worth building, then build it, deploy it and answer when it breaks. 15 years of engineering, 5 of them in early-stage.",
+      "I take a subject from wherever it stands: an unclear business problem, a stalled project, or a product that has become fragile. I clarify what matters, build or take it over, then bring it under control in production. 15 years of engineering, 5 of them in early-stage.",
     ctaPrimary: "See what I built",
     ctaSecondary: "How we can work together",
-    badge: "Freelance, fractional CTO or founding engineer.",
+    badge: "A new system, a project to take over, or a product to make reliable.",
     alt: "Antoine Andrieu, in a white t-shirt, looking at the camera, tattoos visible.",
   },
   trustedKicker: "I built at",
@@ -397,11 +403,11 @@ export const en: HomeContent = {
     kicker: "About",
     captionRole: "Product engineer & hands-on CTO",
     alt: "Antoine Andrieu smiling, in a black t-shirt, arms crossed.",
-    statement: "I work on problems that have no software shape yet.",
+    statement: "I turn uncertainty into reliable systems.",
     paragraphs: [
-      "I start from the business model and the real process: who decides what, where information gets lost, what was never written down. From there I work down to the product, the architecture, the data model and the code, and I stay on the system until it runs in production.",
-      "The thread has been the same for fifteen years: business, product, systems, data, automation, and now agents. Today: the data pipeline, the warehouse and the APIs feeding Mycophyto's internal applications. Before that: senior engineer in San Francisco at Arise Travel, co-founder and CTO of Scircula in Amsterdam, backend at Knap, Meta IT and Izargolf. That path happened in English, remotely, with teams in the United States, the Netherlands and South Africa.",
-      "To understand a business I look at the work itself: I need direct access to the people doing it and the people deciding, not a specification document. That is where the trade-offs come from.",
+      "I start from the real work: how the operation runs, who decides, where information gets lost and which rules live only in people's heads. I turn that into product decisions, an architecture, a data model and code. Then I stay until the system runs — or take over what exists until the team can rely on it again.",
+      "For fifteen years, the thread has been the same: understand an operation, make the problem legible, then build or make reliable the system that carries it. Today, at Mycophyto, I work on the data pipelines, warehouse and APIs that feed internal applications. Before that: senior engineer remotely at Arise Travel, based in San Francisco, co-founder and CTO remotely at Scircula, based in Amsterdam, then backend roles at Knap, Meta IT and Izargolf. That work has been in English, with teams in the United States, the Netherlands, South Africa and Brazil.",
+      "I do not start from a specification document. To understand a business, I need to speak with the people doing the work as well as the people making the decisions. That is where the real trade-offs are.",
     ],
   },
   expertise: {
@@ -411,7 +417,7 @@ export const en: HomeContent = {
       {
         title: "Operations run on spreadsheets",
         description:
-          "I map the real process, then replace it with an ERP the teams actually use because it follows the way they work, history migrated. Mapping the business comes before installing software.",
+          "I map the real process, then choose the right approach: adapt an ERP such as Odoo when it provides the right foundation, or build a custom full-stack product when the business calls for it. In both cases, the system follows how teams work and carries across useful history.",
       },
       {
         title: "Your systems don't talk to each other",
@@ -465,6 +471,7 @@ export const en: HomeContent = {
       },
       {
         title: "Operations digitalization",
+        priority: 2,
         stage: "Clients · in production",
         role: "Custom modules, connectors, data migration",
         description:
@@ -481,6 +488,7 @@ export const en: HomeContent = {
       },
       {
         title: "Scircula",
+        priority: 1,
         stage: "Startup · 2020-2022",
         role: "Co-founder & CTO",
         description:
@@ -506,7 +514,7 @@ export const en: HomeContent = {
         role: "Senior Full-Stack Engineer",
         company: "Arise Travel",
         period: "2022 — 2024",
-        location: "San Francisco, USA",
+        location: "Remote · San Francisco, USA",
         description:
           "AI switchboard prototype and a private Hyperledger Fabric network for hotel bookings, two implementations of the switchboard. Real-time dashboard, container orchestration.",
         tags: ["Python", "FastAPI", "TypeScript", "Kubernetes", "OpenAI", "AWS"],
@@ -515,7 +523,7 @@ export const en: HomeContent = {
         role: "Co-founder & CTO",
         company: "Scircula",
         period: "2020 — 2022",
-        location: "Amsterdam, Netherlands",
+        location: "Remote · Amsterdam, Netherlands",
         description:
           "Product roadmap, architecture, hiring and code, through to the end of the adventure.",
         tags: ["Python", "Django", "Next.js", "React", "AWS"],
@@ -555,30 +563,30 @@ export const en: HomeContent = {
     groups: [
       { title: "Digitalization & ERP", items: ["Odoo", "Python", "n8n"] },
       { title: "Backend & API", items: ["TypeScript", "Node.js", "NestJS", "FastAPI", "Django", "GraphQL"] },
-      { title: "Data", items: ["PostgreSQL", "Prisma", "dbt", "SQL"] },
+      { title: "Data", items: ["PostgreSQL", "dbt", "Prefect", "Airbyte", "SQL"] },
       { title: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
       { title: "Infra & delivery", items: ["Docker", "Kubernetes", "AWS", "GitLab CI/CD", "Linux"] },
-      { title: "AI & agents", items: ["Hermes Agent", "MCP", "OpenAI", "Deepgram", "Whisper"] },
+      { title: "AI & agents", items: ["Hermes Agent", "MCP", "OpenAI", "OpenRouter", "Anthropic"] },
     ],
   },
   collaboration: {
     kicker: "Working together",
-    heading: "Three ways to work together",
+    heading: "The systems I build, take over, or make reliable.",
     items: [
       {
-        title: "Freelance engagement",
+        title: "Build a new system",
         description:
-          "A problem to turn into a system: scoping, architecture, development, production. Written scope, and deliverables that run.",
+          "A business problem to turn into a product or tool: scoping, architecture, development and production. The right system before the right stack.",
       },
       {
-        title: "Fractional CTO",
+        title: "Take over a stalled project",
         description:
-          "A product and a team, no technical leadership yet. Architecture, technical roadmap, hiring, and I code with the team.",
+          "A project already exists, but decisions, technical debt or delivery are slowing it down. I map the existing system, set priorities and restore a delivery path.",
       },
       {
-        title: "Founding engineer",
+        title: "Make an existing product reliable",
         description:
-          "Early-stage: everything is to build and time is short. From the first database schema to the first users, through the product trade-offs.",
+          "Fragile code, risky dependencies, poorly understood flows or debt that prevents progress: I secure what matters and refactor without stopping the business.",
       },
     ],
     problems: {
@@ -588,6 +596,8 @@ export const en: HomeContent = {
         "Complex products",
         "Data-heavy systems",
         "Architecture",
+        "Project takeover",
+        "Refactoring & reliability",
         "Automation",
         "AI & agents",
       ],
@@ -600,15 +610,15 @@ export const en: HomeContent = {
     intro:
       "Describe the situation in a few lines: what is stuck, what is still done by hand, what you cannot decide. I reply with how I read the problem and the first thing I would build.",
     availability:
-      "I take few engagements at a time. Freelance, fractional CTO or founding engineer, on problems worth the technical effort. antoine@andrieu.me",
-    ctaPrimary: "Describe your problem",
+      "I take few engagements at a time. Freelance engagement, fractional CTO or founding engineer: to build, take over or make reliable a system worth the technical effort. antoine@andrieu.me",
+    ctaPrimary: "Start a conversation",
     alt: "Antoine Andrieu seated, smiling, in a beige turtleneck.",
   },
   footer: {
     writeMe: "Write me",
     backToTop: "Back to top",
     rights: "2026 · All rights reserved.",
-    availability: "Freelance · Fractional CTO · Founding engineer",
+    availability: "Build · Take over · Make reliable",
     footerAria: "Footer",
     linksAria: "Contact links",
   },
