@@ -2,6 +2,21 @@ import { Portrait } from "@/components/portrait";
 import { SiteHeader, headerScript } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { companies, type HomeContent } from "@/content/home";
+import type { ReactNode } from "react";
+
+function EditorialHeading({ children, accent }: { children: string; accent: string }): ReactNode {
+  const start = children.toLocaleLowerCase().indexOf(accent.toLocaleLowerCase());
+
+  if (start < 0) return children;
+
+  return (
+    <>
+      {children.slice(0, start)}
+      <span className="heading-accent">{children.slice(start, start + accent.length)}</span>
+      {children.slice(start + accent.length)}
+    </>
+  );
+}
 
 export function HomePage({ t }: { t: HomeContent }) {
   return (
@@ -16,7 +31,7 @@ export function HomePage({ t }: { t: HomeContent }) {
             <p className="hero-eyebrow">{t.hero.eyebrow}</p>
             <h1 className="display hero-title">
               {t.hero.titleA}<br />{t.hero.titleB}<br />
-              {t.hero.titleCPrefix}<span className="text-accent">{t.hero.titleCAccent}</span>
+              {t.hero.titleCPrefix}<span className="title-accent">{t.hero.titleCAccent}</span>
             </h1>
             <p className="hero-description text-muted-site">
               {t.hero.description}
@@ -34,7 +49,7 @@ export function HomePage({ t }: { t: HomeContent }) {
       {/* Trusted by */}
       <section className="py-10 border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="kicker !mb-6">{t.trustedKicker}</p>
+          <p className="kicker !mb-6"><span className="kicker-index" aria-hidden="true">00</span><span>{t.trustedKicker}</span></p>
           <div className="flex flex-wrap items-center gap-x-12 gap-y-4">
             {companies.map((name) => (
               <span key={name} className="trusted-name text-2xl md:text-4xl">
@@ -48,7 +63,7 @@ export function HomePage({ t }: { t: HomeContent }) {
       {/* About */}
       <section id="about" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="kicker">{t.about.kicker}</p>
+          <p className="kicker"><span className="kicker-index" aria-hidden="true">01</span><span>{t.about.kicker}</span></p>
           <div className="about-grid">
             <figure className="about-portrait">
               <Portrait name="about" alt={t.about.alt} />
@@ -56,7 +71,11 @@ export function HomePage({ t }: { t: HomeContent }) {
             </figure>
             <div className="about-copy">
               <h2 className="statement text-4xl md:text-6xl mb-8">
-                {t.about.statement}
+                <EditorialHeading
+                  accent={t.lang === "fr" ? "problèmes" : "problems"}
+                >
+                  {t.about.statement}
+                </EditorialHeading>
               </h2>
               <div className="space-y-6 text-lg text-muted-site leading-relaxed">
                 {t.about.paragraphs.map((paragraph) => (
@@ -71,9 +90,9 @@ export function HomePage({ t }: { t: HomeContent }) {
       {/* Expertise */}
       <section id="expertise" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="kicker">{t.expertise.kicker}</p>
+          <p className="kicker"><span className="kicker-index" aria-hidden="true">02</span><span>{t.expertise.kicker}</span></p>
           <h2 className="statement text-4xl md:text-6xl mb-14 max-w-3xl">
-            {t.expertise.heading}
+            <EditorialHeading accent={t.lang === "fr" ? "situations" : "situations"}>{t.expertise.heading}</EditorialHeading>
           </h2>
           <div className="border-b border-[#e2e0d9]">
             {t.expertise.items.map((item, i) => (
@@ -92,9 +111,9 @@ export function HomePage({ t }: { t: HomeContent }) {
       {/* Projects */}
       <section id="projects" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="kicker">{t.projects.kicker}</p>
+          <p className="kicker"><span className="kicker-index" aria-hidden="true">03</span><span>{t.projects.kicker}</span></p>
           <h2 className="statement text-4xl md:text-6xl mb-14">
-            {t.projects.heading}
+            <EditorialHeading accent="production">{t.projects.heading}</EditorialHeading>
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {t.projects.items.map((project, i) => (
@@ -124,7 +143,7 @@ export function HomePage({ t }: { t: HomeContent }) {
       {/* Experience */}
       <section id="experience" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="kicker">{t.experience.kicker}</p>
+          <p className="kicker"><span className="kicker-index" aria-hidden="true">04</span><span>{t.experience.kicker}</span></p>
           <h2 className="statement text-4xl md:text-6xl mb-14">{t.experience.heading}</h2>
           <div className="border-b border-[#e2e0d9]">
             {t.experience.items.map((job) => (
@@ -158,7 +177,7 @@ export function HomePage({ t }: { t: HomeContent }) {
       {/* Outils */}
       <section id="outils" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="kicker">{t.tools.kicker}</p>
+          <p className="kicker"><span className="kicker-index" aria-hidden="true">05</span><span>{t.tools.kicker}</span></p>
           <h2 className="display text-2xl md:text-3xl mb-10">
             {t.tools.heading}
           </h2>
@@ -182,10 +201,8 @@ export function HomePage({ t }: { t: HomeContent }) {
       {/* Collaboration */}
       <section id="collaborer" className="section-pad border-b border-[#e2e0d9]">
         <div className="container-site">
-          <p className="kicker">{t.collaboration.kicker}</p>
-          <h2 className="statement text-4xl md:text-6xl mb-14 max-w-3xl">
-            {t.collaboration.heading}
-          </h2>
+          <p className="kicker"><span className="kicker-index" aria-hidden="true">06</span><span>{t.collaboration.kicker}</span></p>
+          <h2 className="statement text-4xl md:text-6xl mb-14 max-w-3xl">{t.collaboration.heading}</h2>
           <div className="border-b border-[#e2e0d9]">
             {t.collaboration.items.map((item, i) => (
               <div key={item.title} className="row-item">
@@ -215,11 +232,13 @@ export function HomePage({ t }: { t: HomeContent }) {
         <div className="container-site contact-grid">
           <Portrait name="contact" className="contact-portrait" alt={t.contact.alt} />
           <div>
-            <p className="kicker">{t.contact.kicker}</p>
+            <p className="kicker"><span className="kicker-index" aria-hidden="true">07</span><span>{t.contact.kicker}</span></p>
             <h2 className="display text-[clamp(3.5rem,7vw,6.5rem)] mb-8">
               {t.contact.titleA}
               <br />
-              {t.contact.titleB}
+              <EditorialHeading accent={t.lang === "fr" ? "problème" : "problem"}>
+                {t.contact.titleB}
+              </EditorialHeading>
             </h2>
             <p className="text-xl text-muted-site max-w-2xl mb-6">
               {t.contact.intro}

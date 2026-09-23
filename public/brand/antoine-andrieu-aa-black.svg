@@ -3,5 +3,5 @@
     <path id="aa-left" class="aa-left" d="M0 336 163 0l109 2 78 193-88-1-45-107-113 249Z"/>
     <path id="aa-right" class="aa-right" d="m322 76 84 2 115 262-92-1Zm-54 137 90 2 51 124-89-1Z"/>
   </g>
-  <path id="accent" class="aa-accent" fill="#1e1e1c" d="M203 213h65l-60 124h-64Z"/>
+  <path id="accent" class="aa-accent" fill="#ff6b1a" d="M203 213h65l-60 124h-64Z"/>
 </svg>

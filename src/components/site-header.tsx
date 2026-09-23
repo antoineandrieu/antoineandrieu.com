@@ -52,7 +52,7 @@ export function SiteHeader({ t }: { t: HomeContent }) {
       <div className="header-inner">
         <a href={t.home} className="header-brand" aria-label={t.header.brandAria}>
           <Logo width={92} height={60} />
-          <span className="brand-name">Antoine<br />Andrieu</span>
+          <span className="brand-name">Anto<span className="wordmark-i">i</span>ne<br />Andrieu</span>
         </a>
         <nav className="header-desktop-nav" aria-label="Navigation principale">
           {t.header.nav.map(([id, label]) => (

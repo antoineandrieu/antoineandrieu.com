@@ -8,6 +8,7 @@
   --color-border: #d8d4ca;
   --color-accent: #ff6b1a;
   --color-accent-display: #ff6b1a;
+  --color-title-accent: var(--color-accent);
   --color-accent-ink: #b54308;
   --font-mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Consolas, monospace;
 }
@@ -55,6 +56,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: baseline;
   gap: 0.7rem;
+  position: relative;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--color-border);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 600;
@@ -71,6 +75,12 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-accent);
 }
 
+.kicker-index {
+  color: var(--color-title-accent);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
 /* Condensed display typography */
 .display {
   font-family: var(--font-display), system-ui, sans-serif;
@@ -80,12 +90,26 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-/* Statement heading: big but sentence-case */
+/* Statement heading: strong uppercase editorial treatment */
 .statement {
   font-family: var(--font-display), system-ui, sans-serif;
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.025em;
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.statement::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin-top: 1.5rem;
+  background: var(--color-border);
+}
+
+.heading-accent {
+  color: var(--color-title-accent);
 }
 
 /* Quiet availability note */
@@ -245,8 +269,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Accent text */
-.text-accent {
-  color: var(--color-accent-display);
+.title-accent {
+  color: var(--color-title-accent);
 }
 
 /* Portrait compositions. The hero's edge mask only blends the studio backdrop. */
@@ -320,6 +344,7 @@ picture img { display: block; width: 100%; height: auto; }
 .site-header.is-scrolled .header-brand .logo { height: 46px; }
 .brand-mark { color: var(--color-accent); font-size: 2.8rem; line-height: 1; display: block; transition: transform 350ms cubic-bezier(.2,.7,.2,1); }
 .brand-name { font-family: var(--font-display), sans-serif; font-size: 2.15rem; font-weight: 800; line-height: .82; letter-spacing: -.02em; text-transform: uppercase; transition: font-size 260ms cubic-bezier(.2,.7,.2,1); }
+.wordmark-i { color: var(--color-title-accent); }
 .site-header.is-scrolled .brand-name { font-size: 1.7rem; }
 .header-brand:is(:hover, :focus-visible) .brand-mark { transform: rotate(90deg); }
 .header-desktop-nav { display: flex; align-items: center; gap: .3rem; }
@@ -388,10 +413,14 @@ button:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 5px;
 @media (min-width: 1200px) { .header-inner { padding-inline: 2.5rem; } }
 
 /* The orange footer remains the site's bold closing signature. */
-.site-footer { background: var(--color-accent); color: var(--color-ink); }
+.site-footer,
+.site-footer a,
+.site-footer p { color: var(--color-ink); }
+.site-footer { background: var(--color-accent); }
 .footer-inner { max-width: 88rem; margin-inline: auto; padding: 3rem 3rem 1.5rem; }
 .footer-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
 .footer-intro { display: flex; align-items: center; gap: 1rem; }
+.site-footer .wordmark-i { color: var(--color-ink); }
 .footer-intro p { font-size: .8rem; line-height: 1.6; font-weight: 500; }
 .footer-mark { font-size: 3rem; line-height: 1; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; row-gap: .4rem; }

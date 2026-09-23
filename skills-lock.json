@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "temps": {
+      "source": "gotempsh/temps",
+      "sourceType": "github",
+      "skillPath": "skills/temps/SKILL.md",
+      "computedHash": "e891521680bad2de8c05cd91a36a5896ca160c89a23d7716d641f098dceffa63"
+    }
+  }
+}
