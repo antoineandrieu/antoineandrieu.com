@@ -4,6 +4,7 @@ import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { constants as zlibConstants, createBrotliCompress, createGzip } from "node:zlib";
+import { SpanStatusCode, trace } from "@opentelemetry/api";
 import { captureException, shutdownTelemetry } from "./tracing.mjs";
 
 const root = fileURLToPath(new URL("./dist/", import.meta.url));
@@ -63,8 +64,9 @@ function negotiateEncoding(acceptEncoding, contentType) {
 }
 
 let isShuttingDown = false;
+const tracer = trace.getTracer("portfolio-http");
 
-const server = createServer(async (request, response) => {
+const handleRequest = async (request, response) => {
   try {
     const pathname = new URL(request.url || "/", "http://localhost").pathname;
     if (pathname === "/healthz") {
@@ -110,6 +112,23 @@ const server = createServer(async (request, response) => {
     response.writeHead(statusCode, { "Content-Type": "text/plain; charset=utf-8" });
     response.end(message);
   }
+};
+
+const server = createServer((request, response) => {
+  const pathname = new URL(request.url || "/", "http://localhost").pathname;
+  if (pathname === "/healthz") return handleRequest(request, response);
+
+  return tracer.startActiveSpan(`${request.method || "GET"} ${pathname}`, async (span) => {
+    try {
+      span.setAttribute("http.request.method", request.method || "GET");
+      span.setAttribute("url.path", pathname);
+      await handleRequest(request, response);
+      span.setAttribute("http.response.status_code", response.statusCode);
+      if (response.statusCode >= 500) span.setStatus({ code: SpanStatusCode.ERROR });
+    } finally {
+      span.end();
+    }
+  });
 });
 
 server.on("error", captureException);
