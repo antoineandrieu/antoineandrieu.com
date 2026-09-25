@@ -16,9 +16,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://antoineandrieu.com"),
-  title: "Antoine Andrieu — Product engineer, hands-on CTO & founding engineer",
+  title: "Antoine Andrieu — Software engineer & Product Engineer",
   description:
-    "From business problem to a system in production: I work out how a company actually runs, decide what is worth building, then build and operate it. 15 years of engineering, 5 of them in early-stage.",
+    "Software engineer and Product Engineer: I turn complex business problems into reliable products, from idea to production.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -28,17 +28,32 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Antoine Andrieu — Product engineer, hands-on CTO & founding engineer",
+    title: "Antoine Andrieu — Software engineer & Product Engineer",
     description:
-      "I show up before the specs: understand the business, decide what to build, then ship the system to production. Freelance, fractional CTO or founding engineer.",
+      "I turn complex business problems into reliable products: scoping, architecture, development and production.",
     url: "https://antoineandrieu.com/en",
     siteName: "Antoine Andrieu",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Antoine Andrieu — Software engineer & Product Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Antoine Andrieu — Software engineer & Product Engineer",
+    description:
+      "I turn complex business problems into reliable products, from idea to production.",
+    images: ["/opengraph-image"],
   },
   icons: {
-    icon: [{ url: "/icons/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 

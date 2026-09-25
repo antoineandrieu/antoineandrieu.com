@@ -16,9 +16,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://antoineandrieu.com"),
-  title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
+  title: "Antoine Andrieu — Ingénieur logiciel & Product Engineer",
   description:
-    "Du problème métier au système en production : je comprends comment une entreprise fonctionne, je tranche ce qui mérite d'être construit, puis je le construis et je l'exploite. 15 ans d'ingénierie, dont 5 en early-stage.",
+    "Ingénieur logiciel et Product Engineer : je transforme des problèmes métier complexes en produits fiables, de l'idée à la production.",
   alternates: {
     canonical: "/",
     languages: {
@@ -28,17 +28,32 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Antoine Andrieu — Product engineer, CTO hands-on & founding engineer",
+    title: "Antoine Andrieu — Ingénieur logiciel & Product Engineer",
     description:
-      "J'arrive avant les specs : comprendre l'entreprise, décider quoi construire, puis livrer le système en production. Freelance, CTO fractionné ou founding engineer.",
+      "Je transforme des problèmes métier complexes en produits fiables : cadrage, architecture, développement et mise en production.",
     url: "https://antoineandrieu.com",
     siteName: "Antoine Andrieu",
     locale: "fr_FR",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Antoine Andrieu — Ingénieur logiciel & Product Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Antoine Andrieu — Ingénieur logiciel & Product Engineer",
+    description:
+      "Je transforme des problèmes métier complexes en produits fiables, de l'idée à la production.",
+    images: ["/opengraph-image"],
   },
   icons: {
-    icon: [{ url: "/icons/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 

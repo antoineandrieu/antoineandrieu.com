@@ -8,7 +8,7 @@ export function SiteFooter({ t }: { t: HomeContent }) {
         <div className="footer-top">
           <div className="footer-intro">
             <Logo variant="black" width={78} height={51} />
-            <p>Product engineer, CTO hands-on<br />& founding engineer</p>
+            <p>{t.footer.introLineA}<br />{t.footer.introLineB}</p>
           </div>
           <nav className="footer-links" aria-label={t.footer.linksAria}>
             <a href="mailto:antoine@andrieu.me">{t.footer.writeMe} <span aria-hidden="true">↗</span></a>

@@ -18,6 +18,8 @@ export interface Project {
   /** What I personally owned on it. */
   role: string;
   description: string;
+  /** Concise, scannable statement of the thing that was actually delivered. */
+  delivery: string;
   tags: string[];
 }
 
@@ -86,6 +88,8 @@ export interface HomeContent {
     alt: string;
   };
   footer: {
+    introLineA: string;
+    introLineB: string;
     writeMe: string;
     backToTop: string;
     rights: string;
@@ -126,71 +130,72 @@ export const fr: HomeContent = {
     menuClose: "Fermer le menu",
   },
   hero: {
-    eyebrow: "Product engineer · Hands-on CTO · Founding engineer",
+    eyebrow: "Ingénieur logiciel · Product Engineer",
     titleA: "Du problème métier",
-    titleB: "au système",
+    titleB: "au produit",
     titleCPrefix: "en ",
     titleCAccent: "production",
     description:
-      "Je prends un sujet là où il en est : problème métier encore flou, projet qui patine ou produit devenu fragile. Je clarifie ce qui compte, je construis ou je reprends, puis je le mets sous contrôle en production. 15 ans d'ingénierie, dont 5 en early-stage.",
-    ctaPrimary: "Voir ce que j'ai construit",
-    ctaSecondary: "Comment travailler ensemble",
-    badge: "Nouveau système, projet à reprendre ou produit à fiabiliser.",
+      "J'aide les startups, scale-ups et équipes produit à transformer un problème métier complexe en produit fiable : cadrage, architecture, développement et mise en production.",
+    ctaPrimary: "Voir les produits que j'ai construits",
+    ctaSecondary: "Mes interventions",
+    badge: "Produits complexes · Full-stack · Data · Systèmes métier",
     alt: "Antoine Andrieu, en t-shirt blanc, regard caméra et tatouages visibles.",
   },
   trustedKicker: "J'ai construit chez",
   about: {
     kicker: "À propos",
-    captionRole: "Product engineer & CTO hands-on",
+    captionRole: "Ingénieur logiciel & Product Engineer",
     alt: "Antoine Andrieu souriant, en t-shirt noir, les bras croisés.",
-    statement: "Je transforme le flou en systèmes fiables.",
+    statement: "Je transforme les problèmes complexes en produits fiables.",
     paragraphs: [
-      "Je commence par le travail réel : comment l'activité fonctionne, qui décide, où l'information se perd et quelles règles restent dans les têtes. J'en fais des choix de produit, une architecture, un modèle de données et du code. Puis je reste jusqu'à ce que le système tourne — ou je reprends l'existant jusqu'à ce que l'équipe puisse à nouveau s'y fier.",
-      "Depuis quinze ans, le fil est le même : comprendre une opération, rendre le problème lisible, puis construire ou fiabiliser le système qui la porte. Aujourd'hui, chez Mycophyto, je travaille sur les pipelines de données, l'entrepôt et les API qui alimentent les applications internes. Avant cela : ingénieur senior à distance chez Arise Travel, basée à San Francisco, cofondateur et CTO à distance de Scircula, basée à Amsterdam, puis des rôles backend chez Knap, Meta IT et Izargolf. Ce parcours s'est fait en anglais, avec des équipes aux États-Unis, aux Pays-Bas, en Afrique du Sud et au Brésil.",
+      "Je pars du travail réel : comment l'activité fonctionne, qui décide, où l'information se perd et quelles règles restent dans les têtes. J'en fais des choix de produit, une architecture, un modèle de données et du code. Puis je reste jusqu'à ce que le produit tourne — ou je reprends l'existant jusqu'à ce que l'équipe puisse à nouveau s'y fier.",
+      "Depuis quinze ans, le fil est le même : comprendre un problème métier, le rendre lisible, puis construire ou fiabiliser le produit qui le porte. Mon parcours traverse le voyage, le retail, la mode, les outils métier et l'agritech — un domaine dans lequel je souhaite continuer à construire, sans m'y limiter. Aujourd'hui, chez Mycophyto, je travaille sur les pipelines de données, l'entrepôt et les API qui alimentent les applications internes. Avant cela : ingénieur senior à distance chez Arise Travel, basée à San Francisco, cofondateur et CTO à distance de Scircula, basée à Amsterdam, puis des rôles backend chez Knap, Meta IT et Izargolf. J'ai l'habitude de travailler dans des environnements multiculturels, grâce à des collaborations avec des équipes réparties dans plusieurs pays.",
       "Je ne pars pas d'un cahier des charges. Pour comprendre un métier, j'ai besoin de parler à celles et ceux qui font le travail comme à celles et ceux qui prennent les décisions. C'est là que se trouvent les vrais arbitrages.",
     ],
   },
   expertise: {
     kicker: "Expertise",
-    heading: "Les situations où on m'appelle.",
+    heading: "Les moments où le produit doit avancer.",
     items: [
       {
-        title: "Les opérations tournent sur des tableurs",
+        title: "Il faut passer de l'idée au produit",
         description:
-          "Je cartographie le processus réel, puis je choisis la bonne approche : adapter un ERP comme Odoo lorsqu'il fournit le bon socle, ou concevoir un produit full-stack sur mesure lorsque le métier le demande. Dans les deux cas, le système suit la façon de travailler des équipes et reprend l'historique utile.",
+          "Un problème métier est clair, mais le produit n'existe pas encore. Je cadre ce qui compte, choisis une architecture adaptée et construis jusqu'à une première version réellement utilisable. Le bon produit avant la bonne stack.",
       },
       {
-        title: "Vos systèmes ne se parlent pas",
+        title: "Le produit existe, mais n'avance plus",
         description:
-          "API REST, webhooks, connecteurs : l'ERP, la facturation, la donnée et les outils métier arrêtent de se répondre par ressaisie. Interfaces versionnées et documentées, qu'une équipe interne ou un partenaire peut consommer.",
+          "La codebase, la dette ou des décisions reportées ralentissent l'équipe. Je cartographie l'existant, tranche les priorités et remets une trajectoire de livraison en place, sans réécrire pour le principe.",
       },
       {
-        title: "La donnée existe, personne ne l'exploite",
+        title: "Les systèmes ne suivent plus la croissance",
         description:
-          "Modélisation, pipeline, qualité, entrepôt : une base relationnelle comme source de vérité, que les équipes interrogent elles-mêmes sans passer par un développeur.",
+          "API, ERP, facturation, produit et outils internes ne se parlent plus, ou les données ne sont plus fiables. Je remets une source de vérité et des interfaces documentées là où l'équipe en a besoin.",
       },
       {
-        title: "L'équipe refait les mêmes tâches",
+        title: "L'équipe refait trop de travail manuel",
         description:
-          "Saisie, tri, relances, rapprochements : je les automatise, avec les règles métier écrites noir sur blanc plutôt qu'enfouies dans une tête.",
+          "Saisie, tri, relances, rapprochements : j'automatise ce qui ne doit pas dépendre d'une personne, avec des règles métier explicites et un contrôle humain quand une décision est engagée.",
       },
       {
-        title: "L'IA peut prendre une partie du système",
+        title: "L'IA doit résoudre un problème réel",
         description:
-          "Des agents branchés sur vos données et vos outils, avec les règles métier explicites et une validation humaine là où une décision se prend. Je les fais tourner sur mes propres systèmes avant de les proposer.",
+          "Je construis des agents branchés sur vos données et vos outils lorsqu'ils améliorent réellement un flux. Les règles métier restent explicites, et la validation humaine reste là où une décision compte.",
       },
     ],
   },
   projects: {
     kicker: "Projets",
-    heading: "Du prototype à la production.",
+    heading: "De l'idée à la production.",
     items: [
       {
         title: "Rosa Agri",
         stage: "Produit personnel · en développement",
         role: "Conçu et développé seul",
         description:
-          "Jumeau numérique d'exploitation agricole : parcelles, itinéraires techniques, décisions de production, traçabilité. Le sujet est la chaîne de données : Postgres comme source de vérité, n8n pour l'orchestration, un agent qui normalise et enrichit les entrées avec leur provenance et un niveau de confiance, et une validation humaine avant publication.",
+          "Un jumeau numérique d'exploitation agricole pour relier parcelles, itinéraires techniques, décisions de production et traçabilité. Je conçois la chaîne de données de bout en bout : Postgres comme source de vérité, n8n pour l'orchestration, un agent qui normalise et enrichit les entrées avec leur provenance et un niveau de confiance, puis une validation humaine avant publication.",
+        delivery: "Une chaîne de données traçable, avec validation humaine avant qu'une information devienne une décision.",
         tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "n8n"],
       },
       {
@@ -198,7 +203,8 @@ export const fr: HomeContent = {
         stage: "Arise Travel · prototype",
         role: "Ingénieur senior, deux implémentations",
         description:
-          "Les réservations d'hôtel se prenaient au téléphone, un humain par appel. Prototype de standard automatisé, de la première phrase à la réservation confirmée, sans opérateur. Deux implémentations explorées : composants open source, puis API. L'orchestration portait le risque : latence par tour de parole, reprise sur erreur, dashboard temps réel, déploiement conteneurisé.",
+          "Chez Arise Travel, les réservations d'hôtel se prenaient au téléphone, un humain par appel. J'ai construit un prototype de standard automatisé, de la première phrase à la réservation confirmée, sans opérateur. Deux approches ont été explorées — composants open source, puis API — avec le même enjeu : maîtriser la latence, la reprise sur erreur, le suivi temps réel et le déploiement conteneurisé.",
+        delivery: "Un parcours de réservation téléphonique automatisé, supervisable en temps réel et déployable en conteneurs.",
         tags: ["FastAPI", "React", "OpenAI", "Deepgram", "Kubernetes"],
       },
       {
@@ -206,7 +212,8 @@ export const fr: HomeContent = {
         stage: "Arise Travel · arrêté avec la startup",
         role: "Conception et implémentation",
         description:
-          "Les réservations passaient par des intermédiaires, et chaque couche ajoutait ses erreurs de prix. Réseau privé Hyperledger Fabric : smart contracts pour la logique de réservation et registre distribué entre les organisations participantes, sans intermédiaire pour retraduire les tarifs.",
+          "Les réservations passaient par des intermédiaires, et chaque couche ajoutait des erreurs de prix. J'ai conçu et implémenté un réseau privé Hyperledger Fabric : smart contracts pour la logique de réservation et registre partagé entre les organisations participantes, sans intermédiaire pour retraduire les tarifs.",
+        delivery: "Une logique de réservation partagée entre organisations, sans couche intermédiaire de traduction des tarifs.",
         tags: ["Hyperledger Fabric", "Blockchain", "Smart contracts"],
       },
       {
@@ -215,7 +222,8 @@ export const fr: HomeContent = {
         stage: "Clients · en production",
         role: "Modules sur mesure, connecteurs, reprise des données",
         description:
-          "Des PME et une équipe agricole sur des tableurs ou des logiciels qui ne suivaient pas leur processus. Migration vers un ERP cadré sur leur façon de travailler : modules sur mesure, connecteurs avec les outils existants, reprise de l'historique. Ce qui décide du succès, c'est la reprise des données et l'adoption par les équipes.",
+          "Des PME et une équipe agricole travaillaient sur des tableurs ou des logiciels qui ne suivaient pas leur processus. J'ai transformé ces opérations en ERP utilisables au quotidien : modules sur mesure, connecteurs avec les outils existants et reprise de l'historique. Le travail ne s'arrête pas à l'outil : la migration des données et l'adoption par les équipes décident du résultat.",
+        delivery: "Des opérations sorties des tableurs et reprises dans un ERP réellement utilisable par les équipes.",
         tags: ["Odoo", "Python", "PostgreSQL", "Automatisation"],
       },
       {
@@ -223,7 +231,8 @@ export const fr: HomeContent = {
         stage: "Mes propres systèmes · usage quotidien",
         role: "Conçu et exploité par moi",
         description:
-          "Hermes tourne sur mes systèmes plutôt que sur une démo : normalisation des données entrantes, veille de sources, préparation de déploiements, relecture de code. Chaque workflow suit la même chaîne : outils, données, règles métier explicites, validation humaine quand une décision est engagée, puis action. La même mécanique se branche sur les processus d'une entreprise.",
+          "Hermes tourne sur mes propres systèmes, pas dans une démo : normalisation des données entrantes, veille de sources, préparation de déploiements et relecture de code. Chaque workflow suit la même chaîne : outils, données, règles métier explicites, validation humaine lorsqu'une décision est engagée, puis action. Cette mécanique se branche sur les processus d'une entreprise.",
+        delivery: "Des workflows utilisés au quotidien qui automatisent sans retirer les contrôles humains importants.",
         tags: ["Agents IA", "MCP", "Python", "Automatisation"],
       },
       {
@@ -232,7 +241,8 @@ export const fr: HomeContent = {
         stage: "Startup · 2020-2022",
         role: "Co-fondateur & CTO",
         description:
-          "Le fit vestimentaire en ligne : les mesures d'un vêtement rapprochées de celles du client pour réduire les retours. Deux ans à construire le produit, l'équipe et le go-to-market avec une co-fondatrice sud-africaine. Le pari a buté sur la fiabilité des mesures et sur des marques difficiles à convaincre ; l'aventure s'est arrêtée en 2022.",
+          "Avec ma co-fondatrice, nous avons construit un produit de fit vestimentaire en ligne : rapprocher les mesures d'un vêtement de celles du client pour réduire les retours. Pendant deux ans, j'ai porté la roadmap, l'architecture, le recrutement et le développement, jusqu'au go-to-market. L'aventure s'est arrêtée en 2022 : la fiabilité des mesures et la vente aux marques restaient les verrous du modèle.",
+        delivery: "Un produit de fit construit jusqu'au go-to-market, avec la roadmap, l'architecture et l'équipe technique portées de bout en bout.",
         tags: ["React", "Django", "PyTorch", "Shopify"],
       },
     ],
@@ -311,35 +321,35 @@ export const fr: HomeContent = {
   },
   collaboration: {
     kicker: "Collaboration",
-    heading: "Les systèmes que je construis, reprends ou fiabilise.",
+    heading: "Les produits que je construis, reprends ou fiabilise.",
     items: [
       {
-        title: "Construire un nouveau système",
+        title: "Construire un produit de zéro",
         description:
-          "Un problème métier à transformer en produit ou en outil : cadrage, architecture, développement et mise en production. Le bon système avant la bonne stack.",
+          "Un problème métier à transformer en produit : cadrage, architecture, développement et mise en production. J'interviens là où il faut à la fois décider, construire et livrer.",
       },
       {
-        title: "Reprendre un projet qui patine",
+        title: "Reprendre un produit qui patine",
         description:
-          "Un projet existe déjà, mais les décisions, la dette ou la livraison le ralentissent. Je cartographie l'existant, tranche les priorités et remets une trajectoire de livraison en place.",
+          "Un produit existe déjà, mais les décisions, la dette ou la livraison le ralentissent. Je cartographie l'existant, tranche les priorités et remets une trajectoire de livraison en place.",
       },
       {
-        title: "Fiabiliser un produit existant",
+        title: "Fiabiliser un produit en croissance",
         description:
-          "Code fragile, dépendances risquées, flux mal compris ou dette qui empêche d'avancer : je sécurise l'essentiel et je refactore sans bloquer l'activité.",
+          "Code fragile, dépendances risquées, flux mal compris ou dette qui empêche d'avancer : je sécurise l'essentiel et je fais évoluer le produit sans bloquer l'activité.",
       },
     ],
     problems: {
-      label: "Types de problèmes que je prends",
+      label: "Ce sur quoi j'interviens",
       items: [
-        "Digitalisation métier",
-        "Produits complexes",
-        "Systèmes data-heavy",
-        "Architecture",
+        "Produit 0→1",
+        "Startups & scale-ups",
+        "SaaS & produits B2B",
+        "Agritech (affinité)",
+        "Architecture & API",
+        "Systèmes data",
         "Reprise de projet",
-        "Refactoring & fiabilisation",
-        "Automatisation",
-        "IA & agents",
+        "Automatisation & IA",
       ],
     },
   },
@@ -348,17 +358,19 @@ export const fr: HomeContent = {
     titleA: "Parlons du",
     titleB: "problème",
     intro:
-      "Décrivez la situation en quelques lignes : ce qui coince, ce qui tourne encore à la main, ce que vous n'arrivez pas à trancher. Je réponds avec ma lecture du problème et la première chose que je construirais.",
+      "Décrivez le produit à construire, le système qui freine votre équipe ou la décision technique bloquée. Je réponds avec ma lecture du problème et la première chose que je construirais.",
     availability:
-      "Je prends peu de missions à la fois. Mission freelance, CTO fractionné ou founding engineer : pour construire, reprendre ou fiabiliser un système qui vaut l'effort technique. antoine@andrieu.me",
+      "Échange confidentiel possible pour construire, reprendre ou fiabiliser un produit ou un système. antoine@andrieu.me",
     ctaPrimary: "Discutons",
     alt: "Antoine Andrieu assis, souriant, en col roulé beige.",
   },
   footer: {
+    introLineA: "Ingénieur logiciel",
+    introLineB: "& Product Engineer",
     writeMe: "Écrivez-moi",
     backToTop: "Retour en haut",
     rights: "2026 · Tous droits réservés.",
-    availability: "Construire · Reprendre · Fiabiliser",
+    availability: "Concevoir · Construire · Fiabiliser",
     footerAria: "Pied de page",
     linksAria: "Liens de contact",
   },
@@ -386,71 +398,72 @@ export const en: HomeContent = {
     menuClose: "Close menu",
   },
   hero: {
-    eyebrow: "Product engineer · Hands-on CTO · Founding engineer",
+    eyebrow: "Software engineer · Product Engineer",
     titleA: "From business problem",
-    titleB: "to a system",
+    titleB: "to a product",
     titleCPrefix: "in ",
     titleCAccent: "production",
     description:
-      "I take a subject from wherever it stands: an unclear business problem, a stalled project, or a product that has become fragile. I clarify what matters, build or take it over, then bring it under control in production. 15 years of engineering, 5 of them in early-stage.",
-    ctaPrimary: "See what I built",
-    ctaSecondary: "How we can work together",
-    badge: "A new system, a project to take over, or a product to make reliable.",
+      "I help startups, scale-ups and product teams turn complex business problems into reliable products: scoping, architecture, development and production.",
+    ctaPrimary: "See the products I built",
+    ctaSecondary: "How I can help",
+    badge: "Complex products · Full-stack · Data · Business systems",
     alt: "Antoine Andrieu, in a white t-shirt, looking at the camera, tattoos visible.",
   },
   trustedKicker: "I built at",
   about: {
     kicker: "About",
-    captionRole: "Product engineer & hands-on CTO",
+    captionRole: "Software engineer & Product Engineer",
     alt: "Antoine Andrieu smiling, in a black t-shirt, arms crossed.",
-    statement: "I turn uncertainty into reliable systems.",
+    statement: "I turn complex problems into reliable products.",
     paragraphs: [
-      "I start from the real work: how the operation runs, who decides, where information gets lost and which rules live only in people's heads. I turn that into product decisions, an architecture, a data model and code. Then I stay until the system runs — or take over what exists until the team can rely on it again.",
-      "For fifteen years, the thread has been the same: understand an operation, make the problem legible, then build or make reliable the system that carries it. Today, at Mycophyto, I work on the data pipelines, warehouse and APIs that feed internal applications. Before that: senior engineer remotely at Arise Travel, based in San Francisco, co-founder and CTO remotely at Scircula, based in Amsterdam, then backend roles at Knap, Meta IT and Izargolf. That work has been in English, with teams in the United States, the Netherlands, South Africa and Brazil.",
+      "I start from the real work: how the operation runs, who decides, where information gets lost and which rules live only in people's heads. I turn that into product decisions, an architecture, a data model and code. Then I stay until the product works — or take over what exists until the team can rely on it again.",
+      "For fifteen years, the thread has been the same: understand a business problem, make it legible, then build or make reliable the product that carries it. My work spans travel, retail, fashion, business tools and agritech — a field I am particularly drawn to, without limiting my work to it. Today, at Mycophyto, I work on the data pipelines, warehouse and APIs that feed internal applications. Before that: senior engineer remotely at Arise Travel, based in San Francisco, co-founder and CTO remotely at Scircula, based in Amsterdam, then backend roles at Knap, Meta IT and Izargolf. I am used to working in multicultural environments, through collaborations with teams across several countries.",
       "I do not start from a specification document. To understand a business, I need to speak with the people doing the work as well as the people making the decisions. That is where the real trade-offs are.",
     ],
   },
   expertise: {
     kicker: "Expertise",
-    heading: "The situations I get called in for.",
+    heading: "The moments when the product needs to move.",
     items: [
       {
-        title: "Operations run on spreadsheets",
+        title: "An idea needs to become a product",
         description:
-          "I map the real process, then choose the right approach: adapt an ERP such as Odoo when it provides the right foundation, or build a custom full-stack product when the business calls for it. In both cases, the system follows how teams work and carries across useful history.",
+          "The business problem is clear, but the product does not exist yet. I scope what matters, choose an architecture that fits and build through to a first version people can genuinely use. The right product before the right stack.",
       },
       {
-        title: "Your systems don't talk to each other",
+        title: "The product exists, but has stopped moving",
         description:
-          "REST APIs, webhooks, connectors: the ERP, billing, data and business tools stop answering each other through re-keying. Versioned, documented interfaces an internal team or a partner can consume.",
+          "The codebase, technical debt or deferred decisions are slowing the team down. I map the existing system, set priorities and restore a delivery path without rewriting for its own sake.",
       },
       {
-        title: "The data exists, nobody uses it",
+        title: "The systems no longer support growth",
         description:
-          "Modeling, pipelines, quality, warehouse: a relational database as the source of truth, which the teams query themselves without going through a developer.",
+          "APIs, ERP, billing, product and internal tools no longer work together, or the data is no longer reliable. I restore a source of truth and documented interfaces where the team needs them.",
       },
       {
-        title: "The team repeats the same manual work",
+        title: "The team repeats too much manual work",
         description:
-          "Data entry, sorting, follow-ups, reconciliations: I automate them, with the business rules written down instead of stored in someone's head.",
+          "Data entry, sorting, follow-ups, reconciliations: I automate what should not depend on one person, with explicit business rules and human oversight whenever a decision is involved.",
       },
       {
-        title: "AI can take over part of the system",
+        title: "AI needs to solve a real problem",
         description:
-          "Agents wired into your data and your tools, with explicit business rules and human validation where a decision is taken. I run them on my own systems before offering them.",
+          "I build agents connected to your data and tools when they genuinely improve a workflow. Business rules stay explicit, and human validation stays where a decision matters.",
       },
     ],
   },
   projects: {
     kicker: "Projects",
-    heading: "From prototype to production.",
+    heading: "From idea to production.",
     items: [
       {
         title: "Rosa Agri",
         stage: "Personal product · in development",
         role: "Designed and built alone",
         description:
-          "Digital twin of a farm: plots, technical itineraries, production decisions, traceability. The work is the data chain: Postgres as the source of truth, n8n orchestrating, an agent normalizing and enriching incoming data with its provenance and a confidence level, and human validation before publication.",
+          "A digital twin for a farm, connecting plots, technical itineraries, production decisions and traceability. I am designing the data chain end to end: Postgres as the source of truth, n8n for orchestration, an agent that normalizes and enriches incoming data with its provenance and confidence level, then human validation before publication.",
+        delivery: "A traceable data chain, with human validation before information becomes a decision.",
         tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "n8n"],
       },
       {
@@ -458,7 +471,8 @@ export const en: HomeContent = {
         stage: "Arise Travel · prototype",
         role: "Senior engineer, two implementations",
         description:
-          "Hotel bookings came in by phone, one human per call. Prototype of an automated switchboard, from the first sentence to the confirmed booking, with no operator. Two implementations explored: open-source components, then an API. Orchestration carried the risk: latency per turn, error recovery, real-time dashboard, containerized deployment.",
+          "At Arise Travel, hotel bookings came in by phone, one person per call. I built a prototype automated switchboard, from the first sentence to a confirmed booking, without an operator. We explored two approaches — open-source components, then an API — with the same challenge: controlling latency, error recovery, real-time monitoring and containerized deployment.",
+        delivery: "An automated phone-booking flow, monitorable in real time and deployable in containers.",
         tags: ["FastAPI", "React", "OpenAI", "Deepgram", "Kubernetes"],
       },
       {
@@ -466,7 +480,8 @@ export const en: HomeContent = {
         stage: "Arise Travel · shut down with the startup",
         role: "Design and implementation",
         description:
-          "Bookings went through intermediaries, and every layer added its own price errors. Private Hyperledger Fabric network: smart contracts for the booking logic and a distributed ledger shared across the participating organizations, with no intermediary re-translating the rates.",
+          "Bookings went through intermediaries, and every layer introduced price errors. I designed and implemented a private Hyperledger Fabric network: smart contracts for booking logic and a shared ledger between participating organizations, without an intermediary re-translating rates.",
+        delivery: "Shared booking logic between organizations, without an intermediary layer translating rates.",
         tags: ["Hyperledger Fabric", "Blockchain", "Smart contracts"],
       },
       {
@@ -475,7 +490,8 @@ export const en: HomeContent = {
         stage: "Clients · in production",
         role: "Custom modules, connectors, data migration",
         description:
-          "SMEs and a farm team on spreadsheets or on software that did not match how they worked. Migration to an ERP shaped around their process: custom modules, connectors to existing tools, history migrated. Success comes down to the data migration and whether the team adopts it.",
+          "SMEs and a farm team were working with spreadsheets or software that did not match their process. I turned those operations into ERP systems teams could use every day: custom modules, connectors to existing tools and migrated history. The work does not stop at the software: the data migration and team adoption determine the result.",
+        delivery: "Operations moved out of spreadsheets and into ERP systems teams could genuinely use every day.",
         tags: ["Odoo", "Python", "PostgreSQL", "Automation"],
       },
       {
@@ -483,7 +499,8 @@ export const en: HomeContent = {
         stage: "My own systems · daily use",
         role: "Built and operated by me",
         description:
-          "Hermes runs on my systems rather than in a demo: normalizing incoming data, watching sources, preparing deployments, reviewing code. Every workflow follows the same chain: tools, data, explicit business rules, human validation where a decision is at stake, then action. The same mechanics plug into a company's processes.",
+          "Hermes runs on my own systems, not in a demo: normalizing incoming data, watching sources, preparing deployments and reviewing code. Every workflow follows the same chain: tools, data, explicit business rules, human validation where a decision is at stake, then action. This same mechanism plugs into a company's processes.",
+        delivery: "Daily workflows that automate useful work without removing meaningful human controls.",
         tags: ["AI agents", "MCP", "Python", "Automation"],
       },
       {
@@ -492,7 +509,8 @@ export const en: HomeContent = {
         stage: "Startup · 2020-2022",
         role: "Co-founder & CTO",
         description:
-          "Online garment fit: matching a garment's measurements to the customer's to cut returns. Two years building the product, the team and the go-to-market with a South African co-founder. The bet ran into unreliable measurements and fashion brands that were hard to sell; the company stopped in 2022.",
+          "With my co-founder, we built an online garment-fit product: matching a garment's measurements to a customer's to reduce returns. For two years, I owned the roadmap, architecture, hiring and development through to go-to-market. The company stopped in 2022: reliable measurements and selling to fashion brands remained the model's constraints.",
+        delivery: "A garment-fit product built through to go-to-market, with the roadmap, architecture and engineering team owned end to end.",
         tags: ["React", "Django", "PyTorch", "Shopify"],
       },
     ],
@@ -571,35 +589,35 @@ export const en: HomeContent = {
   },
   collaboration: {
     kicker: "Working together",
-    heading: "The systems I build, take over, or make reliable.",
+    heading: "The products I build, take over, or make reliable.",
     items: [
       {
-        title: "Build a new system",
+        title: "Build a product from scratch",
         description:
-          "A business problem to turn into a product or tool: scoping, architecture, development and production. The right system before the right stack.",
+          "A business problem to turn into a product: scoping, architecture, development and production. I step in where decisions, building and delivery all need to happen.",
       },
       {
-        title: "Take over a stalled project",
+        title: "Take over a stalled product",
         description:
-          "A project already exists, but decisions, technical debt or delivery are slowing it down. I map the existing system, set priorities and restore a delivery path.",
+          "A product already exists, but decisions, technical debt or delivery are slowing it down. I map the existing system, set priorities and restore a delivery path.",
       },
       {
-        title: "Make an existing product reliable",
+        title: "Make a growing product reliable",
         description:
-          "Fragile code, risky dependencies, poorly understood flows or debt that prevents progress: I secure what matters and refactor without stopping the business.",
+          "Fragile code, risky dependencies, poorly understood flows or debt that prevents progress: I secure what matters and evolve the product without stopping the business.",
       },
     ],
     problems: {
-      label: "Problems I take on",
+      label: "Where I can help",
       items: [
-        "Business digitalization",
-        "Complex products",
-        "Data-heavy systems",
-        "Architecture",
-        "Project takeover",
-        "Refactoring & reliability",
-        "Automation",
-        "AI & agents",
+        "0→1 product",
+        "Startups & scale-ups",
+        "SaaS & B2B products",
+        "Agritech (a focus)",
+        "Architecture & APIs",
+        "Data systems",
+        "Product takeover",
+        "Automation & applied AI",
       ],
     },
   },
@@ -608,17 +626,19 @@ export const en: HomeContent = {
     titleA: "Let's talk about",
     titleB: "the problem",
     intro:
-      "Describe the situation in a few lines: what is stuck, what is still done by hand, what you cannot decide. I reply with how I read the problem and the first thing I would build.",
+      "Describe the product you need to build, the system slowing your team down, or the technical decision that is blocked. I reply with how I read the problem and the first thing I would build.",
     availability:
-      "I take few engagements at a time. Freelance engagement, fractional CTO or founding engineer: to build, take over or make reliable a system worth the technical effort. antoine@andrieu.me",
+      "Confidential conversations welcome to build, take over or make a product or system reliable. antoine@andrieu.me",
     ctaPrimary: "Start a conversation",
     alt: "Antoine Andrieu seated, smiling, in a beige turtleneck.",
   },
   footer: {
+    introLineA: "Software engineer",
+    introLineB: "& Product Engineer",
     writeMe: "Write me",
     backToTop: "Back to top",
     rights: "2026 · All rights reserved.",
-    availability: "Build · Take over · Make reliable",
+    availability: "Design · Build · Make reliable",
     footerAria: "Footer",
     linksAria: "Contact links",
   },

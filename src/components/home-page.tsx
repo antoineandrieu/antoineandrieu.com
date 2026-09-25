@@ -129,6 +129,9 @@ export function HomePage({ t }: { t: HomeContent }) {
                 <p className="text-muted-site leading-relaxed mb-6 flex-1">
                   {project.description}
                 </p>
+                <p className="border-l-2 border-[#2a5c4f] pl-4 text-sm leading-relaxed mb-6">
+                  {project.delivery}
+                </p>
                 <div className="tech-list">
                   {project.tags.map((tag) => (
                     <span key={tag} className="chip">
